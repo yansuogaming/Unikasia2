@@ -1,0 +1,54 @@
+function loadmore(e){
+	console.log($(e).text());
+	var txt=$(e).text();
+	if(txt=="Read more"){
+		$('.bound-content-article').css('height','auto');
+		$(e).text('Hide');
+	}else{
+		$('.bound-content-article').css('height','93px');
+		$(e).text('Read more');
+	}
+}
+$(document).ready(function(){
+	 $('#tab-1 .tabContent').hide();
+     $('#tab-1 .tabContent:first').show();
+     $('#tab-1 .tabNav1 li:first').addClass('selected-tab');
+     $('#tab-1 .tabNav1 a').click(function(){
+     	$('#tab-1 .tab-nav li').removeClass('selected-tab');
+     	$(this).addClass('currentAbout');
+     	var currentTab = $(this).attr('href');
+    	$('#tab-1 .tabContent').hide();
+     	$(currentTab).show();
+     	return false;
+     });
+     //check if hash tag exists in the URL
+     if(window.location.hash) {
+      //set the value as a variable, and remove the #
+     	var hash_value = window.location.hash;
+     	$('#tab-1 .tab-nav li').removeClass('selected-tab');
+     	$(hash_value+'a').parent().addClass('selected-tab');
+     	$('#tab-1 .tabContent').hide();
+     	$(hash_value).show();
+     	$("html, body").animate({ scrollTop: 0 });
+		return false;
+     }
+     $("#owl-des").owlCarousel({
+         items : 4,
+         itemsDesktop : [1199,4],
+         itemsDesktopSmall : [980,3],
+         itemsTablet: [768,2],
+         lazyLoad : true,
+         pagination: true,
+         navigation : true,
+         navigationText : ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"]
+     });
+     $("#widget-owl").owlCarousel({
+         navigation : true,
+         slideSpeed : 300,
+         paginationSpeed : 400,
+         singleItem:true,
+         lazyLoad : true,
+         pagination: true,
+         navigationText : ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"]
+     });
+});

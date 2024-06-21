@@ -1,0 +1,9 @@
+.sticky-footer-wrapper{position: fixed; top: auto; bottom: 20px; left: 0; right: 0; text-align: center;z-index: 99}
+.sticky-footer-wrapper a{display: flex; column-gap: 9px; padding: 14px 15px; border-radius:  39.5px;background: #FFF;
+box-shadow: 0px 12px 24px 0px rgba(255, 167, 24, 0.36); width: 287px; margin: 0 auto; align-items: center;color:#111D37;
+font-size: 16px;
+font-weight: 500;
+line-height: 24px;
+letter-spacing: 1.6px;
+}
+.tailor_button .icon{display:flex; width: 52px; height: 52px; background:#FFA718; border-radius:  100%; align-items: center; justify-content: center}

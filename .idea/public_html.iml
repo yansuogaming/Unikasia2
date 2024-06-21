@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/inc/dompdf-2.0.3/lib" isTestSource="false" packagePrefix="Dompdf" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/dompdf-2.0.3/src" isTestSource="false" packagePrefix="Dompdf" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/editor/tinymce/plugins/responsive_filemanager/filemanager/include" isTestSource="false" packagePrefix="FtpClient" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/ga_report/src" isTestSource="false" packagePrefix="Google" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/iso" isTestSource="false" packagePrefix="Tests" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/json_master" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/json_master/justinrainbow/json-schema/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/json_master/seld/jsonlint/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/phpword/dompdf/dompdf/src" isTestSource="false" packagePrefix="Dompdf" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/phpword/phenx/php-font-lib/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/phpword/phenx/php-svg-lib/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/phpword/phpoffice/common/src" isTestSource="false" packagePrefix="PhpOffice" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/phpword/phpoffice/common/tests" isTestSource="true" packagePrefix="PhpOffice" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/phpword/phpoffice/common/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/phpword/phpoffice/phpword/src" isTestSource="false" packagePrefix="PhpOffice" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/phpword/sabberworm/php-css-parser/lib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/phpword/sabberworm/php-css-parser/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/zalo-php-sdk" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/inc/zalo-php-sdk/src" isTestSource="false" packagePrefix="Zalo" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

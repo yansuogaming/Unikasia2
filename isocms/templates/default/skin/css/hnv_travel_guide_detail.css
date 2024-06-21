@@ -1,0 +1,205 @@
+.guide_detail_body .trvgd_page_container {
+    padding-top: 20px;
+}
+.trvgd_main {
+    margin-top: 40px;
+}
+.trvgd_similar {
+    margin-top: 92px;
+    margin-bottom: 80px;
+}
+.trvgd_similar_title h2 {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 52px;
+    margin-bottom: 24px;
+}
+.trvgd_similar_content {
+    position: relative;
+}
+.trvgd_similar_content .owl-prev,
+.trvgd_similar_content .owl-next {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 100px;
+    background: var(--Neutral-6, #fff);
+    box-shadow: 0px 12px 32px 0px rgba(125, 135, 158, 0.09);
+}
+.trvgd_similar_content .owl-prev {
+    position: absolute;
+    top: 50%;
+    left: -79px;
+}
+.trvgd_similar_content .owl-next {
+    position: absolute;
+    top: 50%;
+    right: -79px;
+}
+.trvgd_similar_item {
+    display: flex;
+    flex-direction: column;
+}
+.trvgd_similar_item_image {
+    height: 216px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.trvgd_similar_item_image:hover img {
+    scale: 1.2;
+}
+.trvgd_similar_item img {
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+.trvgd_similar_item_intro {
+    padding: 25px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--Neutral-5, #f0f0f0);
+    background: #fff;
+    margin-top: -16px;
+    position: relative;
+}
+.trvgd_similar_item_title h3 a {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    transition: all 0.3s ease-in-out;
+}
+.trvgd_similar_item_title h3 a:hover {
+    color: #ffa718;
+}
+.trvgd_similar_item_title h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.trvgd_similar_item_place {
+    color: var(--Neutral-2, #434b5c);
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+.trvgd_similar_item_place .fa-location-dot {
+    /* width: 24px;
+    height: 24px; */
+    color: #004ea8;
+    margin-right: 8px;
+}
+.trvgd_similar_item_description {
+    color: var(--Neutral-3, #959aa4);
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 60px;
+}
+.trvgd_similar_item_description p {
+    margin-bottom: unset;
+}
+.trvgd_recent_view {
+    margin-bottom: 120px;
+}
+.trvgd_recent_view_title h2 {
+    color: var(--Neutral-1, #111d37);
+    text-align: left;
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 52px;
+    margin-bottom: 24px;
+}
+.trvgd_similar_item img {
+    width: 100%;
+}
+.trvgd_similar_travel_guide .owl-prev,
+.trvgd_similar_travel_guide .owl-next {
+    transition: all 0.3s ease-in-out;
+}
+.trvgd_similar_travel_guide .owl-prev:hover,
+.trvgd_similar_travel_guide .owl-next:hover {
+    background: #869791 !important;
+    color: #333 !important;
+}
+.trvgd_action .txt_ico_share_star {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 48px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d3dce1;
+}
+.trvgd_action .share-content {
+    display: flex;
+    align-items: center;
+}
+.trvgd_tags {
+    margin-top: 20px;
+    display: flex;
+    gap: 8px;
+}
+.trvgd_list_tags {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.trvgd_txttag {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+.trvgd_list_tags a {
+    color: var(--Neutral-3, #959aa4);
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.guide_detail_body .sharer-icons a {
+    color: #959aa4 !important;
+    border-color: #959aa4 !important;
+    transition: all 0.3s ease-in-out;
+}
+.guide_detail_body .sharer-icons a:hover {
+    color: #ffa718 !important;
+    background: #fff !important;
+    box-shadow: 0px 12px 32px 0px #ffa718;
+}
+.trvgd_content h1,
+.trvgd_content h2,
+.trvgd_content h3,
+.trvgd_content h4,
+.trvgd_content h5,
+.trvgd_content h6 {
+    margin-bottom: 24px;
+}

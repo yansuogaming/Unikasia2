@@ -1,0 +1,119 @@
+﻿<krpano title="hoankiem" title_vi="hoankiem" title_en="hoankiem" gtitle="hoankiem" showerrors="false" logkey="false" onstart="curvo();">
+
+    <!--<include url="%SWFPATH%/skin/vtourskin.xml" />-->
+    <!--<include url="%SWFPATH%/skin/language.xml" />-->
+    <!--<include url="%SWFPATH%/skin/common.xml" />-->
+    <!--<include url="%SWFPATH%/skin/helptour.xml" />-->
+    <!--<include url="%SWFPATH%/skin/sounds.xml" />-->
+    <!--<iinclude url="%SWFPATH%/skin/intro_sound.xml" />-->
+    <!--<include url="%SWFPATH%/skin/text_info.xml" />-->
+    <!--<include url="%SWFPATH%/skin/tooltip.xml" />-->
+    <!--<include url="%SWFPATH%/skin/toolbar.xml" />-->
+    <!--<include url="%SWFPATH%/skin/combobox.xml" />-->
+    <!--<include url="%SWFPATH%/skin/thumb.xml" />--> 
+    <!--<include url="%SWFPATH%/skin/hotspot.xml" />-->
+    <!--<include url="%SWFPATH%/skin/plan.xml" />-->
+    <!--<include url="%SWFPATH%/skin/gallery.xml" />-->
+    <!--<include url="%SWFPATH%/skin/menu_thumb.xml" />-->
+    <!--<include url="%SWFPATH%/skin/debug.xml" />--> 
+
+    <include url="scenes.xml" />
+    <!--<include url="menu.xml" />-->
+    <!--<include url="thumb.xml" />-->
+    <!--<include url="layout.xml" />-->
+    <!--<include url="combobox.xml" />-->
+    <!--<include url="gallery.xml" />-->
+
+
+    <!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
+    <skin_settings maps="false"
+                   maps_type="google"
+                   maps_bing_api_key="sK9fZro8ewadsOFgseId~8gvTqNMN52jLlA9iML2ymQ~ApjDpy-b-bs8-hGdTjhK6UA_MVEinoom8y0Bv8sVSPNAbTKZGdG-OvXDWod_I58i"
+                   maps_google_api_key="AIzaSyAJlC0cwOUsDdh8j683H9ejNXjJKZXpvxA"
+                   maps_zoombuttons="false"
+                   gyro="false"
+                   webvr="false"
+                   webvr_gyro_keeplookingdirection="false"
+                   webvr_prev_next_hotspots='false'
+                   littleplanetintro="false"
+                   title="true"
+                   menu_thumb="false"
+                   thumbs="false"
+                   thumbs_width="100" thumbs_height="66" thumbs_padding="5"
+                   thumbs_opened="false"
+                   thumbs_text="false"
+                   thumbs_dragging="true"
+                   thumbs_onhoverscrolling="false"
+                   thumbs_scrollbuttons="true"
+                   thumbs_scrollindicator="true"
+                   thumbs_loop="false"
+                   tooltips_buttons="false"
+                   tooltips_thumbs="false"
+                   tooltips_hotspots="false"
+                   tooltips_mapspots="false"
+                   deeplinking="false"
+                   loadscene_flags="MERGE"
+                   loadscene_blend="BLEND(2.0, easeInCubic)"
+                   loadscene_blend_prev="BLEND(2.0, easeInCubic)"
+                   loadscene_blend_next="BLEND(2.0, easeInCubic)"
+                   loadingtext="Đang tải dữ liệu... Xin vui lòng chờ trong giây lát.[br/]Loading... Please wait."
+                   layout_width="100%"
+                   layout_maxwidth="800"
+                   layout_maxwidth.touch="580"
+                   controlbar_width="-24"
+                   controlbar_height="40"
+                   controlbar_offset="0"
+                   controlbar_offset_closed="-40"
+                   controlbar_overlap.no-fractionalscaling="10"
+                   controlbar_overlap.fractionalscaling="0"
+                   design_skin_images="%SWFPATH%/media/images/toolbar/base_noborder.png"
+                   design_bgcolor="0x302001"
+                   design_bgalpha="0.75"
+                   design_bgalpha_info="1"
+
+                   design_bgborder="0"
+                   design_bgroundedge="5"
+                   design_bgshadow="0 4 10 0x000000 0.3"
+                   design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+                   design_thumbborder_bgborder_active="3 0xFFFF00 1.0"
+                   design_thumbborder_padding="2"
+                   design_thumbborder_bgroundedge="3"
+                   design_text_css="color:#FFFFFF;font-size:16px; font-family:Roboto-Regular,Arial;"
+                   design_text_shadow="1"
+
+                   loading_logo=""
+                   loading_logo_width="300"
+
+    />
+
+    <!-- context menu - http://krpano.com/docu/xml/#contextmenu -->
+    <contextmenu fullscreen="true" versioninfo="false">
+           <item name="fs" caption="FULLSCREEN" />
+        <item name="cc" caption="Virtual Tour Hoan Kiem"/>
+    </contextmenu>
+
+    <!-- startup action - load the first scene -->
+    <action name="startup" autorun="onstart">
+        if(startscene === null OR !scn[get(startscene)], copy(startscene,scn[0].name); );
+        txtadd(startscene,'scene/',get(startscene),'.xml');
+        loadpano(get(startscene), null, MERGE,);
+        if(startactions !== null, startactions() );
+    </action>
+    
+    <action name="curvo">
+        set(view.stereographic,true);
+        tween(view.hlookat, 25, 2.0);				
+        tween(view.vlookat, 32, 2.0);	
+        tween(view.fov, 120, 2.0);
+        <!--wait(1);--> 
+        zoom();
+    </action>
+    
+    <!--Đây là hành động xoay trong lúc chờ tới điểm đọc-->
+    <action name="zoom">
+        tween(view.fov, 120.0, 2.0);
+        tween(view.hlookat, 25, 2.0);				
+        tween(view.vlookat, 32, 2.0);				
+        set(view.normal,true);
+    </action>
+</krpano>

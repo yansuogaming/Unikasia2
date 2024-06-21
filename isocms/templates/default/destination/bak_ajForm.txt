@@ -1,0 +1,132 @@
+// Form đăng ký tài liệu
+    $(".form_document").submit(function (event) {
+        event.preventDefault();
+
+        // Khởi tạo biến hasError với giá trị false
+        let hasError = false;
+
+        let error_fullname_required = "Vui lòng nhập họ và tên";
+        let error_email_required = "Vui lòng nhập email";
+        let error_email_format = "Vui lòng nhập đúng email";
+        let error_phone_required = "Vui lòng nhập điện thoại";
+        let error_company_required = "Vui lòng nhập tên doanh nghiệp";
+        let error_industry_required = "Vui lòng chọn lĩnh vực hoạt động";
+        let error_recaptcha_required = "Vui lòng check recaptcha";
+        let fullname = $(".fullname").val().trim();
+
+        // Check fullname
+        if (fullname == "") {
+            $("#error_fullname")
+                .removeClass("hide")
+                .text(error_fullname_required);
+            hasError = true;
+        } else {
+            $("#error_fullname").addClass("hide");
+        }
+
+        // Check email
+        let email = $(".email").val().trim();
+        if (email == "") {
+            $("#error_email").removeClass("hide").text(error_email_required);
+            hasError = true;
+        } else if (checkValidEmail(email) == false) {
+            $("#error_email").removeClass("hide").text(error_email_format);
+            hasError = true;
+        } else {
+            $("#error_email").addClass("hide");
+        }
+
+        // Check phone
+        let phone = $(".phone").val().trim();
+        if (phone == "") {
+            $("#error_phone").removeClass("hide").text(error_phone_required);
+            hasError = true;
+        } else {
+            $("#error_phone").addClass("hide");
+        }
+
+        // Check company
+        let company = $(".company").val().trim();
+        if (company == "") {
+            $("#error_company")
+                .removeClass("hide")
+                .text(error_company_required);
+            hasError = true;
+        } else {
+            $("#error_company").addClass("hide");
+        }
+
+        // Check industry
+        let industry = $(".industry").val().trim();
+        if (industry == "") {
+            $("#error_industry")
+                .removeClass("hide")
+                .text(error_industry_required);
+            hasError = true;
+        } else {
+            $("#error_industry").addClass("hide");
+        }
+
+        let check_advise = $(".check_advise").is(":checked") ? 1 : 0;
+
+        // Check recaptcha
+        let recaptcha = $("#g-recaptcha-response").val();
+        if (recaptcha === "") {
+            $("#error_recaptcha")
+                .removeClass("hide")
+                .text(error_recaptcha_required);
+            hasError = true;
+        } else {
+            $("#error_recaptcha").addClass("hide");
+        }
+
+        if (hasError) {
+            return;
+        } else {
+            // Hiển thị hiệu ứng mờ và biểu tượng loading
+            let $overlay = $("<div class='document_overlay'></div>");
+            $("body").append($overlay);
+            $overlay.show();
+
+            let $loadingIcon = $("<div class='document_loading_icon'></div>");
+            $("body").append($loadingIcon);
+            $loadingIcon.show();
+
+            let data = {
+                fullname: fullname,
+                email: email,
+                phone: phone,
+                company: company,
+                industry: industry,
+                check_advise: check_advise,
+                blog_id: blog_id,
+            };
+
+            $.ajax({
+                url: "/index.php?mod=blog&act=confirmDoc",
+                type: "POST",
+                data: data,
+
+                success: function (response) {
+                    // console.log(response);
+
+                    if (response === "INSERT_SUCCESS") {
+                        const redirectUrl =
+                            "/blog/tai-lieu/xac-nhan/" + blog_id + ".html";
+
+                        window.location.href = redirectUrl;
+                    } else {
+                        console.error("Error:", response);
+                    }
+                },
+
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error(
+                        "Error submitting form:",
+                        textStatus,
+                        errorThrown
+                    );
+                },
+            });
+        }
+    });

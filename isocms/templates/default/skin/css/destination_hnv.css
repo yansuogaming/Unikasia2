@@ -1,0 +1,647 @@
+body {
+    font-family: "SF Pro Display", sans-serif;
+}
+.des_page_container {
+    border-radius: 40px 40px 0px 0px;
+    background: #fff;
+    padding-top: 32px;
+}
+.des_breadcrumb {
+    margin: unset;
+}
+.des_breadcrumb_title {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+.des_breadcrumb_link a {
+    color: var(--Primary, #ffa718);
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+    color: var(--Primary, #ffa718);
+}
+.des_breadcrumb_active {
+    color: var(--Neutral-1, #111d37);
+
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+.container.d-flex {
+    gap: 24px;
+}
+.des_tailor_top {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    padding: 60px 0;
+}
+.des_tailor_btn {
+    position: absolute;
+    top: -44px;
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 1.6px;
+    border-radius: 39.5px;
+    background: #fff;
+    padding: 13px 15px 14px;
+    box-shadow: 0px 12px 24px 0px rgba(255, 167, 24, 0.36);
+    display: flex;
+    gap: 9px;
+    align-items: center;
+}
+.des_tailor_img {
+    width: 52px;
+    height: 52px;
+    background: #ffa718;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+.des_tailor_menu {
+    gap: 48px;
+}
+.des_tailor_menu .nav-link {
+    padding-bottom: 17px;
+    transition: color 0.5s ease;
+}
+.des_tailor_menu .nav-link:hover {
+    border-bottom: 3px solid #ffa718;
+    color: #ffa718;
+}
+.des_tailor_dropdown:hover .des_tailor_dropdown_menu {
+    display: block;
+}
+.des_tailor_title h1 {
+    color: var(--Neutral-1, #111d37);
+    text-align: center;
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 52px;
+    margin-bottom: 38px;
+}
+.des_tailor_description {
+    color: var(--Neutral-2, #434b5c);
+    text-align: center;
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 24px;
+    width: 839px;
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
+.des_tailor_item {
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0px 12px 32px 0px rgba(125, 135, 158, 0.09);
+    padding: 36px 22px 54px;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+}
+.des_tailor_item:hover {
+    box-shadow: 0px 12px 24px 0px rgba(255, 167, 24, 0.36);
+}
+.des_tailor_item_img {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto;
+    margin-bottom: 24px;
+}
+.des_tailor_item_title h2 {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    margin-bottom: 20px;
+}
+.des_tailor_item_description {
+    color: var(--Neutral-2, #434b5c);
+    text-align: center;
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+}
+.des_list_travel_style {
+    border-radius: 40px 40px 0px 0px;
+    background: #fff9f1;
+    padding: 80px 0;
+}
+.des_travel_style_title h2 {
+    color: var(--Neutral-1, #111d37);
+    text-align: center;
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 52px;
+    margin-bottom: 6px;
+}
+.des_travel_style_description {
+    margin-bottom: 32px;
+    color: var(--Neutral-2, #434b5c);
+    text-align: center;
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 24px;
+}
+.des_travel_style_item {
+    position: relative;
+}
+.des_travel_style_item img {
+    height: 462px;
+}
+.des_travel_style_item_intro {
+    padding: 16px 10px 23px;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0px 12px 32px 0px rgba(125, 135, 158, 0.09);
+    position: absolute;
+    bottom: -55px;
+    left: 15px;
+    right: 15px;
+}
+.des_travel_style_item_title h3 {
+    text-align: center;
+}
+.des_travel_style_item_title a {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px;
+}
+.des_travel_style_item_description {
+    color: var(--Neutral-2, #434b5c);
+    text-align: center;
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-top: 8px;
+}
+.des_travel_style_content .owl-item.active {
+    padding-bottom: 55px;
+}
+/* CSS Carousel */
+.des_travel_style_content .owl-prev,
+.des_list_hotel_content .owl-prev {
+    width: 48px;
+    height: 48px;
+    background: #fff !important;
+    border-radius: 100% !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -77px;
+}
+.des_travel_style_content .owl-next,
+.des_list_hotel_content .owl-next {
+    width: 48px;
+    height: 48px;
+    background: #fff !important;
+    border-radius: 100% !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -77px;
+}
+.des_gallery_content .owl-prev {
+    width: 40px;
+    height: 40px;
+    background: #fff !important;
+    border-radius: 100% !important;
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-50%);
+}
+.des_gallery_content .owl-next {
+    width: 40px;
+    height: 40px;
+    background: #fff !important;
+    border-radius: 100% !important;
+    position: absolute;
+    top: 50%;
+    right: 40px;
+    transform: translateY(-50%);
+}
+.des_travel_style_content .owl-prev:hover,
+.des_travel_style_content .owl-next:hover,
+.des_gallery_content .owl-prev:hover,
+.des_gallery_content .owl-next:hover,
+.des_list_hotel_content .owl-prev:hover,
+.des_list_hotel_content .owl-next:hover {
+    background: #869791 !important;
+    color: #333 !important;
+}
+.des_list_hotel_content .owl-prev,
+.des_list_hotel_content .owl-next {
+    fill: #fff;
+    filter: drop-shadow(0px 6px 18px rgba(0, 0, 0, 0.08));
+}
+/* End of CSS Carousel */
+.des_our_team_title h2 {
+    color: var(--Neutral-1, #111d37);
+    text-align: center;
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 52px;
+}
+.des_our_team_description {
+    color: var(--Neutral-2, #434b5c);
+    text-align: center;
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 6px 0 58px;
+}
+.des_our_team_content_img {
+    text-align: center;
+}
+.des_our_team_list {
+    border-radius: 8px;
+    background: var(--Primary, #ffa718);
+    padding: 51px 44px;
+}
+.des_our_team_list .row {
+    gap: 108px;
+}
+.des_our_team_item {
+    display: flex;
+    gap: 24px;
+}
+.des_our_team_item_img {
+    width: 48px;
+    height: 48px;
+}
+.des_our_team_item_img img {
+    width: 100%;
+}
+.des_our_team_item_info h3 {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+}
+.des_our_team_item_description {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    margin-top: 8px;
+}
+.des_gallery_title h2 {
+    color: var(--Neutral-1, #111d37);
+    text-align: center;
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 52px;
+    margin-bottom: 46px;
+}
+.des_grow {
+    transition: all 0.2s ease-in-out;
+}
+.des_grow:hover {
+    transform: scale(1.2);
+    z-index: 100;
+    box-shadow: 0px 12px 24px 0px rgba(255, 167, 24, 0.36);
+}
+.owl-item.active {
+    z-index: 1;
+}
+.owl-item.active:hover {
+    z-index: 2;
+}
+.des_gallery .owl-stage-outer {
+    padding: 30px 0;
+}
+.des_gallery {
+    margin-bottom: 80px;
+}
+.des_list_hotel {
+    padding-top: 135px;
+    padding-bottom: 120px;
+    border-radius: 40px 40px 0px 0px;
+    background: #fff;
+}
+/* .des_list_hotel_item {
+    border: 1px solid #ccc;
+} */
+.des_list_hotel .des_list_hotel_title h2 {
+    color: var(--Neutral-1, #111d37);
+    text-align: center;
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 52px;
+}
+.des_list_hotel .des_list_hotel_description {
+    color: var(--Neutral-2, #434b5c);
+    text-align: center;
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 24px;
+    margin-top: 6px;
+    margin-bottom: 32px;
+}
+.des_list_hotel_item_intro {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+}
+.des_list_hotel_item_title h3 {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+}
+.des_list_hotel_item_star {
+    color: #ffa718;
+}
+.des_list_hotel_item_type,
+.des_list_hotel_item_place {
+    color: var(--Neutral-2, #434b5c);
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+.des_list_hotel_item_type .svg-inline--fa,
+.des_list_hotel_item_place .svg-inline--fa {
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+}
+.des_list_hotel_item_rate {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.des_rate_number {
+    padding: 4px;
+    color: var(--Accent-1, #fff9f1);
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    border-radius: 4px 4px 4px 0px;
+    background: var(--Accent-2, #004ea8);
+}
+.des_rate_text {
+    color: var(--Neutral-2, #434b5c);
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    margin-left: 11px;
+    margin-right: 2px;
+}
+.des_rate_total {
+    color: var(--Neutral-3, #959aa4);
+    font-family: "SF Pro Display";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+}
+.des_list_hotel_item_price {
+    text-align: right;
+}
+.des_price_title {
+    color: var(--Neutral-3, #959aa4);
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+.des_price_show_text {
+    color: var(--Primary, #ffa718);
+    font-family: "SF Pro Display";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+}
+.des_price_show_number {
+    color: var(--Primary, #ffa718);
+    font-family: "SF Pro Display";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px;
+}
+.des_list_faq_content #accordionExample {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+.des_list_faq_title h2 {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 52px;
+    text-align: center;
+    margin-top: 120px;
+    margin-bottom: 48px;
+}
+.des_list_faq_content .box_left,
+.des_list_faq_content .box_right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.des_list_faq_content .accordion-button {
+    padding: 12px;
+    background: var(--Neutral-5, #f0f0f0);
+    border: none;
+    /* color: var(--Neutral-1, #111d37); */
+    font-family: "SF Pro Display";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+}
+.des_tailor_bot {
+    margin-bottom: 120px;
+}
+.destination_place_body #btn-tailor-fixed {
+    display: none;
+}
+.destination_place_body .newsupdate {
+    padding: 120px 0;
+}
+.destination_place_body .customersay {
+    background: #fff;
+    padding: unset;
+    padding-top: 80px;
+    padding-bottom: 170px;
+}
+.destination_place_body .top-attractions .txt_title_attractions {
+    margin-bottom: 50px;
+}
+.destination_place_body .newsupdate .txtupnews {
+    margin-bottom: 32px;
+}
+.destination_place_body #nah_also_like .alsoLike {
+    margin-top: 0;
+}
+/** --- CSS fix hộ các trang khác @@ --- **/
+.hnv_item_holiday img {
+    width: unset;
+    height: 100% !important;
+    border-radius: 8px !important;
+}
+.hnv_item_holiday .col-12.col-sm-12.col-md-5.col-lg-5 {
+    padding-right: 0;
+}
+.hnv_item_holiday .col-12.col-sm-12.col-md-7.col-lg-7 {
+    padding-left: 0;
+}
+/***/
+.customersay .customer_review_h3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: 56px !important;
+    overflow: hidden;
+
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+}
+.customersay .content {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-height: 120px !important;
+    overflow: hidden;
+
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+/***/
+.destination_place_body .exploretrip {
+    padding: unset;
+}
+/** --- End of CSS fix hộ các trang khác @@ --- **/
+@media screen and (max-width: 1170px) {
+    .des_header_bg {
+        font-size: 210px !important;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .des_header_bg {
+        font-size: 165px !important;
+    }
+}
+@media screen and (max-width: 800px) {
+    /** --- CSS fix hộ các trang khác @@ --- **/
+    .hnv_item_holiday img {
+        width: unset !important;
+        height: unset !important;
+    }
+    .hnv_item_holiday .col-12.col-sm-12.col-md-5.col-lg-5 {
+        padding-right: 12px;
+    }
+    .hnv_item_holiday .col-12.col-sm-12.col-md-7.col-lg-7 {
+        padding-left: 12px;
+    }
+    .hnv_item_holiday .content_holiday {
+        margin-left: unset !important;
+    }
+    /** --- End of CSS fix hộ các trang khác @@ --- **/
+    .des_list_faq_content .box_right {
+        margin-top: 16px;
+    }
+    .des_header_bg {
+        font-size: 120px !important;
+    }
+}
+@media screen and (max-width: 600px) {
+    .des_tailor_description {
+        width: unset;
+    }
+    .des_tailor_btn {
+        top: 20px;
+    }
+    .des_tailor_bot .row {
+        gap: 15px;
+    }
+    .des_travel_style_content .owl-prev,
+    .des_gallery_content .owl-prev {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+    }
+    .des_travel_style_content .owl-next,
+    .des_gallery_content .owl-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+    }
+}
+@media screen and (max-width: 414px) {
+}
+@media screen and (max-width: 375px) {
+}

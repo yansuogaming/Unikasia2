@@ -1,0 +1,123 @@
+<form action="" class="simple_form search" id="filters_form2" method="post">
+	<input type="hidden" name="search_des" value="search_des" />
+    <input type="hidden" name="min_price" id="price1" value="{$min_price_search}">
+    <input type="hidden" name="max_price" id="price2" value="{$max_price_search}">
+    <input type="hidden" name="country_id" id="country_id2" value="{$country_id}">
+	<div class="findBox">
+		<p class="title">{$core->get_Lang('Price level')}</p>
+		<div id="price_0" class="inline-block text-left"></div><span> -</span>
+		<div id="price_1" class="inline-block text-right"></div>
+		<div id="slider-price2" class="mb10"></div>
+	</div>
+	{if $lstVoucherCat}
+	<div class="findBox">
+		<p class="title">{$core->get_Lang('Lọc theo thể loại')}</p>
+		<ul class="filter tour_types common_wrapper_details checkBlock">
+			{section name=i loop=$lstVoucherCat}
+			<li>
+				<input id="a{$lstVoucherCat[i].voucher_cat_id}" class="typeSearch" name="voucher_cat_id[]" value="{$lstVoucherCat[i].voucher_cat_id}" type="checkbox" {if $clsISO->checkInArray($voucher_cat_id,$lstVoucherCat[i].voucher_cat_id)}checked="checked"{/if} />
+				<label class="twoFilter" for="a{$lstVoucherCat[i].voucher_cat_id}">{$clsVoucherCategory->getTitle($lstVoucherCat[i].voucher_cat_id)}</label>
+			</li>
+			{/section}
+		</ul>
+		<span class="readmore">{$core->get_Lang('More')}</span>	
+					
+	</div>
+	{/if}
+	{if $lstCity}
+	<div class="findBox">
+		<p class="title">{$core->get_Lang('Lọc theo điểm đến')}</p>
+		<ul class="filter tour_types common_wrapper_details checkBlock">
+			{section name=i loop=$lstCity}
+			<li>
+				<input id="a{$lstCity[i].city_id}" class="typeSearch" name="city_id[]" value="{$lstCity[i].city_id}" type="checkbox" {if $clsISO->checkInArray($city_id,$lstCity[i].city_id)}checked="checked"{/if} />
+				<label class="twoFilter" for="a{$lstCity[i].city_id}">{$clsCity->getTitle($lstCity[i].city_id) }</label>
+			</li>
+			{/section}
+		</ul>
+		<span class="readmore">{$core->get_Lang('More')}</span>	
+		
+		{literal}
+		<script>
+			$(function(){
+				$('.common_wrapper_details').each(function(){
+					var $_this = $(this);
+					if($_this.height()>220){
+						$_this.css("height","220px");
+						$_this.closest(".findBox").find(".readmore").show();
+					}else{
+						$_this.closest(".findBox").find(".readmore").hide();
+					}
+				});
+				$(document).on("click",".findBox .readmore",function(){
+					var $_this = $(this);
+					if(!$_this.hasClass("less")){
+						$_this.addClass("less");
+						$_this.closest(".findBox").find(".common_wrapper_details").css("height","auto");	
+						$_this.html('{/literal}{$core->get_Lang("Less")}{literal}');
+					}
+					else{
+						$_this.removeClass("less");
+						$_this.closest(".findBox").find(".common_wrapper_details").css("height","220px");	
+						$_this.html('{/literal}{$core->get_Lang("More")}{literal}');	
+					}
+				});	
+			});
+		</script>
+		{/literal}
+	</div>
+	{/if}
+</form>
+<script >
+	var day='{$core->get_Lang("ngày")}';
+	var đ='{$core->get_Lang("đ")}';
+	var voucher_cat_id='{$voucher_cat_id}';
+	var city_id= '{$city_id}';
+	var max_price_value = '{$max_price}';
+	var min_price_value = '{$min_price}';
+	var min_price_search = '{$min_price_search}';
+	var max_price_search = '{$max_price_search}';
+</script>
+{literal}
+<script >
+
+$(function(){
+	$( "#slider-price2" ).slider({
+      range: true,
+      min: parseInt(min_price_value),
+      max: parseInt(max_price_value),
+      values: [min_price_search, max_price_search],
+      slide: function( event, ui ) {
+        $( "#price_0" ).html(ui.values[0] +' '+ đ);
+		$( "#price_1" ).html(ui.values[1] +' '+ đ);
+		$( "#price1" ).val(ui.values[0]);
+		$( "#price2" ).val(ui.values[1]);
+		$('#filters_form2').submit();
+      }
+    });
+//    $("#price_0").html($("#slider-price2").slider("values", 0) +' '+ đ);
+//	$("#price_1").html($("#slider-price2").slider("values", 1) +' '+ đ);
+	document.getElementById("price_0").innerHTML = format_price(min_price_search);
+	document.getElementById("price_1").innerHTML = format_price(max_price_search);
+
+})
+function format_price(n) {
+	 
+	return n.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.') + 'đ'
+	}
+</script>
+{/literal}
+{literal}
+<style>
+.readMoreClass{position:relative}
+.readMoreClass .section_expander{position:absolute; width:50px; bottom:0; right:0; color:#f16f30}
+.common_wrapper_details{overflow:hidden}
+</style>
+{/literal}
+{literal}
+<script>
+	$('#filters_form2 .typeSearch').change(function(){
+	$(this).closest('form').submit();
+});
+</script>
+{/literal}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="detaildeparture.tpl" server="27.118.16.242" local="133625723806331793" remote="133625734800000000" Dst="0" />
+<file name="Inbound.tpl" server="27.118.16.242" local="133625723804701264" remote="133592959200000000" Dst="0" />
+<file name="_cat.tpl" server="27.118.16.242" local="133625723804936102" remote="133592959200000000" Dst="0" />
+<file name="booken.tpl" server="27.118.16.242" local="133625723805135675" remote="133592959200000000" Dst="0" />
+<file name="bookgroup.tpl" server="27.118.16.242" local="133625723805217864" remote="133592959200000000" Dst="0" />
+<file name="bookgroup_2018.tpl" server="27.118.16.242" local="133625723805683893" remote="133592959200000000" Dst="0" />
+<file name="bookgroup_2020.tpl" server="27.118.16.242" local="133625723805711792" remote="133592959200000000" Dst="0" />
+<file name="cat.tpl" server="27.118.16.242" local="133625723805742725" remote="133618848000000000" Dst="0" />
+<file name="default.tpl" server="27.118.16.242" local="133625723806076842" remote="133625523000000000" Dst="0" />
+<file name="listGuide.tpl" server="27.118.16.242" local="133625723806168140" remote="133592959200000000" Dst="0" />
+<file name="load_Price_Table_Departure_Group.tpl" server="27.118.16.242" local="133625723806492817" remote="133592959200000000" Dst="0" />
+<file name="load_list_tour_strat_date.tpl" server="27.118.16.242" local="133625723806597317" remote="133592959200000000" Dst="0" />
+<file name="load_more_tour.tpl" server="27.118.16.242" local="133625723806822772" remote="133592959200000000" Dst="0" />
+<file name="map.tpl" server="27.118.16.242" local="133625723806879955" remote="133592959200000000" Dst="0" />
+<file name="other.tpl" server="27.118.16.242" local="133625723807536360" remote="133592959200000000" Dst="0" />
+<file name="place_inbound.tpl" server="27.118.16.242" local="133625723807759598" remote="133600680000000000" Dst="0" />
+<file name="place_outbound.tpl" server="27.118.16.242" local="133625723807874194" remote="133592959200000000" Dst="0" />
+<file name="searchtour.tpl" server="27.118.16.242" local="133625723808067399" remote="133592959200000000" Dst="0" />
+<file name="table_departure_date.tpl" server="27.118.16.242" local="133625723808128293" remote="133592959200000000" Dst="0" />
+<file name="traveldestination.tpl" server="27.118.16.242" local="133625723808453537" remote="133592959200000000" Dst="0" />
+<file name="tour_start_date.tpl" server="27.118.16.242" local="133625723808881617" remote="133592959200000000" Dst="0" />
+</dwsync>

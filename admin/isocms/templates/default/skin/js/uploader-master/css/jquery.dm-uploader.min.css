@@ -1,0 +1,64 @@
+.dm-uploader {
+    cursor: default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+.dm-uploader .btn {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: auto;
+    background-color: white;
+    text-shadow: none;
+    box-shadow: none;
+    color: #757575 !important;
+    border: 2px solid #757575;
+    font-weight: bold;
+    border-radius: 6px;
+    background-image: none;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+    border-color: rgba(126, 239, 104, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
+    outline: 0 none;
+}
+input:not(:placeholder-shown) {
+    background-color:  #96d3ec!important;
+}
+
+
+input:placeholder-shown {
+    background-color:  #ffffff!important;
+}
+
+.dm-uploader .btn input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    border: solid transparent;
+    width: 100%;
+    opacity: 0;
+    cursor: pointer
+}

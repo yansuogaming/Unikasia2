@@ -1,0 +1,108 @@
+
+.blog_tag_body .txt_header1 {
+	background-color: #111D37;
+}
+
+.blog_tag_body .border-bottom {
+	border-bottom: none !important;
+}
+
+.blog_tag_body .text-light .img_logo_voyages_2 {
+	display: unset !important;
+}
+
+.blog_tag_body .text-light .img_logo_voyages_1 {
+	display: none !important;
+}
+
+.blog_tag_body .txt_dropdown {
+	color: rgb(17, 29, 55) !important;
+}
+
+.blog_tag_body .drop_down {
+	background-color: rgb(240, 240, 240);
+}
+
+.blog_tag_body .fa-angle-down {
+	--bs-text-opacity: 1;
+	color: rgba(var(--bs-secondary-rgb),var(--bs-text-opacity))!important;
+}
+	
+	.pageBlogTag .title32 {
+		padding-bottom: 15px;
+	}
+	.blog_tag_body .bread_crumb {
+		margin-top: 20px;
+		margin-bottom: 30px;
+	}
+	
+	.submitted {
+		display: flex;
+		margin-bottom: 20px;
+		border-bottom: 1px solid #dedede;
+		padding-bottom: 15px;
+		padding-top: 10px;
+		width:100%; 
+		line-height: 32px;
+	}
+	
+	.time_txtico {
+		margin-right: 10px;
+	}
+	
+	.pageBlogTag .blogItem {
+		margin-bottom: 40px;
+	}
+
+.sticky_fix .title_box {
+	  color: #434b5c;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+  padding: 16px;
+}
+
+.sticky_fix .linkDestination {
+	margin-left: 8px;
+}
+
+.pageBlogTag .bodyBlog {
+	padding: 15px 0;
+}
+
+.sticky_fix .title_box2 {
+	color: #434b5c;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px;
+  padding: 16px;
+	text-transform: uppercase;
+}
+
+
+.sticky_fix .featured-blog {
+	margin-bottom: 20px;
+}
+
+.sticky_fix .bloglastest .featuredblog-img
+
+{
+/*    width: 296px;*/
+/*    height: 100%;*/
+    transition: transform 0.3s ease;
+}
+
+.sticky_fix .bloglastest:hover .featuredblog-img
+{
+    transform: scale(1.2);
+}
+
+.pageBlogTag .blogPopular .featured-blog {
+	margin-left: 0px;
+}
+
+.last-blog-content .linkBlog {
+	color: #FFA718;
+}

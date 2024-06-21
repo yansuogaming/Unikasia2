@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.isocms.com/sitemap.xml
+Disallow: /admin
+Disallow: /inc
+Disallow: /cgi-bin
+Disallow: /temp
+Disallow: /tmp
+Disallow: /isocms

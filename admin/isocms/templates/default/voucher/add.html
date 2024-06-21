@@ -1,0 +1,241 @@
+
+   
+   
+ 
+<div class="container-fluid">
+    <div class="page-title">
+        <h2>{if $pvalTable}{$clsClassTable->getTitle($pvalTable)}{else}{$core->get_Lang('add')} {$core->get_Lang('product')}{/if}</h2>
+        {if $pvalTable}
+        <div class="permalinkbox">
+            <div class="wrap permalink_show">
+                <strong><a href="{$DOMAIN_NAME}{$clsClassTable->getLink($pvalTable)}" target="_blank"><img align="absmiddle" src="{$URL_IMAGES}/v2/link.png" /> {$DOMAIN_NAME}{$clsClassTable->getLink($pvalTable)}</a></strong>
+            </div>
+        </div>
+        {/if}
+        <div class="wrap">
+			{assign var=lstProductType value=$clsProductStore->getListType()}
+			{if $lstProductType}
+			<div class="group_buttons fr" style="margin-top:-40px">
+				{foreach from=$lstProductType key=k item=v}
+				<label class="lblCheckBox mr10 fl">
+					<input type="checkbox" data="{$pvalTable}" _type="{$k}" class="changeToStore" {if $clsProductStore->checkExist($pvalTable,$k)}checked="checked"{/if} /><br /> {$v}
+				</label>
+				{/foreach}
+			</div>
+			{/if}
+		</div>
+    </div>
+    <div class="clearfix"><br /></div>
+    <form id="edititem" method="post" action="" enctype="multipart/form-data" class="validate-form">
+        <div id="clienttabs">
+            <ul>
+                <li class="tabchild"><a href="#"><i class="iso-bassic"></i> {$core->get_Lang('basic')}</a></li>
+                {if $pvalTable}
+                  <li class="tabchild"><a href="#"><i class="iso-bassic"></i> {$core->get_Lang('libraryimages')}</a></li>
+                <li class="tabchild"><a href="#"><i class="iso-bassic"></i> {$core->get_Lang('seotools')}</a></li>
+
+               	{/if}
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+        <div id="tab_content">
+            <div class="tabbox" style="display:block">
+                <div class="wrap">
+                    <div class="photobox fl image">
+                        {if $_isoman_use eq '1'}
+						<img src="{$oneItem.image}" alt="Hình ảnh" id="isoman_show_image" />
+						<input type="hidden" id="isoman_hidden_image" name="isoman_url_image" value="{$oneItem.image}" />
+						<a href="javascript:void()" title="Thay đổi" class="photobox_edit ajOpenDialog" isoman_for_id="image" isoman_val="{$oneItem.image}" isoman_name="image"><i class="iso-edit"></i></a>
+							{if $oneItem.image}
+							<a pvalTable="{$pvalTable}" clsTable="Product" href="javascript:void()" title="Xóa" class="photobox_edit deleteItemImage" g="imgItem">X</a>
+							{/if}
+                        {else}
+						<img src="{$oneItem.image}" alt="Chưa có hình ảnh" id="imgFx_image" />
+						<input type="hidden" name="image_src" value="" class="hidden_src" id="imgFx_hidden" />
+						<a href="javascript:void()" title="{$_lang->get_Lang('Change')}" class="photobox_edit editInlineImage" g="imgFx">
+							<i class="iso-edit"></i>
+						</a> 
+						<input type="file" style="display:none" id="imgFx_file" g="imgFx" class="editInlineImageFile" name="image" />
+                        {/if}
+                    </div>
+                    <div class="fr" style="width:78%">
+                        <div class="row-span">
+                            <div class="fieldlabel bold"><p>{$core->get_Lang('nameofproduct')} <span class="color_r">*</span></p></div>
+                            <div class="fieldarea">
+                                <input class="text full required" name="iso-title" value="{$clsClassTable->getTitle($pvalTable)}" maxlength="255" type="text" style="width:500px;">
+                            </div>
+                        </div>
+						<div class="row-span">
+							<div class="fieldlabel bold"><p>{$core->get_Lang('category')} <span class="color_r">*</span></p> </div>
+							<div class="fieldarea">
+								<select name="cat_id" class="slb required" style="width:500px;padding:4px">
+									{*$clsProductCat->getListOption($oneItem.cat_id)*}
+								</select>
+							</div>
+						</div>
+                        {*<div class="row-span">
+							<div class="fieldlabel bold"><p>{$core->get_Lang('xuất sứ')} </p></div>
+							<div class="fieldarea">
+								<select name="iso-brand_id" class="slb " style="width:500px;padding:4px">
+									{$classBrand->getOptionBrand($clsClassTable->getBrand($pvalTable))}
+								</select>
+							</div>
+						</div>
+                        
+                        <div class="row-span"> 
+                        	<div class="fieldlabel bold"><p>{$core->get_Lang('Mã sản phẩm')} </p></div>
+                            <div class="fieldarea"> 
+                            	<input class="text full fontLarge " name="iso-code" value="{$clsClassTable->getCode($pvalTable)}" maxlength="255" type="text" style="width:500px" /> 
+                            </div> 
+                        </div>
+						<div class="row-span"> 
+                        	<div class="fieldlabel bold"><p>{$core->get_Lang('Màu sắc')} </p></div>
+                            <div class="fieldarea"> 
+                            	<input class="text full fontLarge " name="iso-color" value="{$clsClassTable->getColor($pvalTable)}" maxlength="255" type="text"  style="width:500px" /> 
+                            </div> 
+                        </div>*}
+                        <div class="row-span"> 
+                        	<div class="fieldlabel bold" style="display:inline-block"><p>{$core->get_Lang('Kho')} <span class="color_r">*</span></p></div>
+							<div class="fieldarea" style="display:inline-block">
+								<select name="iso-inventory" class="slb required" style="width:500px;padding:4px">
+								{$clsClassTable->getIventory($pvalTable)}
+								</select>
+							</div>                           
+						</div>
+                        <div class="row-span"> 
+                        	<div class="fieldlabel bold">
+								<p>{$core->get_Lang('Giá')} <span class="color_r">*</span></p>
+							</div>
+                            <div class="fieldarea">
+                            	<input class="text full span70 price" type="number" name="price" value="{$clsISO->formatNumberToEasyRead($clsClassTable->getOneField('price',$pvalTable))}"  id="price" maxlength="255" type="text" style="width: 300px !important;height: 28px;" /> ({$clsISO->getRate()}) 
+                            </div>                           
+                        </div>
+                        {if $clsProductStore->checkExist($pvalTable,PROMOTION)}
+                        <div id="hot_deals">
+                            <div class="row-span"> 
+                                <div class="fieldlabel bold"><p>{$core->get_Lang('Giá cũ')} </p></div>
+                                <div class="fieldarea">
+                                    <input class="text full span70 price" name="price_old" type="number" value="{$clsISO->formatNumberToEasyRead($clsClassTable->getOneField('price_old',$pvalTable))}" type="number"  id="price_old" maxlength="255"  style="width: 300px !important;height: 28px;" /> ({$clsISO->getRate()}) 
+                                </div> 
+                            </div>
+                             <div class="row-span"> 
+                                <div class="fieldlabel bold" style="display:inline-block"><p>{$core->get_Lang('Giảm')} <span class="color_r">*</span></p></div>
+                                
+                                <div class="fieldarea" style="display:inline-block">
+                                    <input class="text full span70 price" name="iso-hot_deals" value="{$clsClassTable->getOneField('hot_deals',$pvalTable)}" id="hot_deals" maxlength="255" type="number" style="width: 300px !important;height: 28px;" /> (%) 
+                                </div>                           
+                            </div>
+                        </div>
+                        {else}
+                        <div id="hot_deals" style="display:none">
+                            <div class="row-span"> 
+                                <div class="fieldlabel bold"><u class="color_r">Giá cũ: </u></div>
+                                <div class="fieldarea">
+                                    <input class="text full span70 price" type="number" name="price_old" value="{$clsISO->formatNumberToEasyRead($clsClassTable->getOneField('price_old',$pvalTable))}"  id="price_old" maxlength="255" type="text" style="width: 300px !important;height: 28px;" /> ({$clsISO->getRate()}) 
+                                </div> 
+                            </div>
+                             <div class="row-span"> 
+                                <div class="fieldlabel bold" style="display:inline-block"><u class="color_r">Giảm: </u></div>
+                                
+                                <div class="fieldarea" style="display:inline-block">
+                                    <input class="text full span70 price" name="iso-hot_deals" value="{$clsClassTable->getOneField('hot_deals',$pvalTable)}"  id="hot_deals" maxlength="255" type="text" style="width: 300px !important;height: 28px;" /> (%) 
+                                </div>                           
+                            </div>
+                        </div>
+                        {/if}
+                        <div class="row-span">
+                            <div class="fieldlabel bold"><p>{$core->get_Lang('status')} <span class="color_r">*</span></p></div>
+                            <div class="fieldarea">
+                                <div class="vietiso_status_button"></div>
+                                <script type="text/javascript">
+                                var is_online = '{$clsClassTable->getOneField("is_online",$pvalTable)}';
+                                var pvalTable = '{$pvalTable}';
+                                </script>
+                                {literal}
+                                    <script type="text/javascript">
+                                        $(document).ready(function() {
+                                            $('.vietiso_status_button').isoswitchvalue({
+                                                _value: is_online,
+                                                _selector: 'iso-is_online'
+                                            });
+                                        });
+                                    </script>
+                                {/literal}
+                                <span class="notice" id="prv_status" {if $clsClassTable->getOneField("is_online",$pvalTable) eq 1}style="display:none;"{/if}>PRIVATE: {$core->get_Lang('can only be seen via the link in the admin page')}.</span>
+                                <span class="notice" id="pub_status" {if $clsClassTable->getOneField("is_online",$pvalTable) eq 0}style="display:none;"{/if}>PUBLIC: {$core->get_Lang('is available online show normal status')}.</span>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                    <div class="row-span">
+                        <div class="notice"><h3>{$core->get_Lang('Mô tả sản phẩm')}</h3></div>
+                        {$clsForm->showInput('intro')}
+                    </div>
+                    {*<div class="row-span">
+                        <div class="notice"><h3>{$core->get_Lang('Thông số kỹ thuật')}</h3></div>
+                        {$clsForm->showInput('content')}
+                    </div>
+                      <div class="row-span">
+                        <div class="notice"><h3>{$core->get_Lang('Hướng dẫn sử dụng')}</h3></div>
+                        {$clsForm->showInput('manual')}
+                    </div>
+                     <div class="row-span">
+                        <div class="notice"><h3>{$core->get_Lang('Hướng dẫn mua hàng')}</h3></div>
+                        {$clsForm->showInput('purchase')}
+                    </div>*}
+                </div>
+            </div>
+            {if $pvalTable}
+         <div class="tabbox" style="display:none">
+            	<div id="CourseGalleryHolder"></div>
+            </div>
+            <div class="tabbox" style="display:none">
+            	<div class="row-span row-has-border">
+                    <span class="notice-full">{$core->get_Lang('notetitlemeta')}</span>
+                    <div class="fieldlabel" style="text-align:right;">{$core->get_Lang('Meta title')}</div>
+                    <div class="fieldarea"><textarea class="textarea span90 fontLarge" rows="1" style="resize:none" name="config_value_title">{$clsISO->getPageTitle($pvalTable,'Product')}</textarea></div>
+                </div>
+                <div class="row-span row-has-border">
+                    <span class="notice-full">{$core->get_Lang('noteintrometa')}</span>
+                    <div class="fieldlabel" style="text-align:right;">{$core->get_Lang('Meta description')}</div>
+                    <div class="fieldarea"><textarea class="textarea span90" rows="3" style="resize:none" name="config_value_intro">{$clsISO->getPageDescription($pvalTable,Product)}</textarea></div>
+                </div>
+                <div class="row-span row-has-border">
+                    <span class="notice-full">{$core->get_Lang('notekeywordmeta')}</span>
+                    <div class="fieldlabel" style="text-align:right;">{$core->get_Lang('Meta keyword')}</div>
+                    <div class="fieldarea">
+                        <textarea class="textarea span90" rows="3" style="resize:none" name="config_value_keyword">{$clsISO->getPageKeyword($pvalTable,Product)}</textarea>
+                        <br style="clear:both" />
+                        <br style="clear:both" />
+                        <table>
+                            <tr>
+                                <td style="background:#CCC">{$core->get_Lang('Meta Robots Index')}</td>
+                                <td>
+                                    <select name="meta_index">
+                                        <option value="0">{$core->get_Lang('Index')}</option>
+                                        <option value="1" {if $oneMeta.meta_index eq 1}selected="selected"{/if}>{$core->get_Lang('NoIndex')}</option>
+                                    </select>
+                                </td>
+                                <td style="background:#CCC">{$core->get_Lang('Meta Robots Follow')}</td>
+                                <td>
+                                    <select name="meta_follow">
+                                        <option value="0">{$core->get_Lang('Follow')}</option>
+                                        <option value="1" {if $oneMeta.meta_follow eq 1}selected="selected"{/if}>{$core->get_Lang('NoFollow')}</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+              
+            {/if}
+        </div>
+        <div class="clearfix"><br /></div>
+        <fieldset class="submit-buttons">
+            {$saveBtn}{$saveList}
+            <input value="Update" name="submit" type="hidden" />
+        </fieldset>
+    </form>
+</div>

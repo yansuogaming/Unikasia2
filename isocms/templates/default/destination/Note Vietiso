@@ -1,0 +1,39 @@
+### Note check IP văn phòng
+if ($clsISO->getRealIP() === '116.111.125.163') {
+
+}
+
+### Responsive 1
+@media (min-width: 1200px) {
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+@media (min-width: 768px) and (max-width: 991px) {
+}
+@media (min-width: 576px) and (max-width: 767px) {
+}
+@media (max-width: 575px) {
+}
+
+### Responsive 2
+@media screen and (max-width: 1170px) {
+}
+@media screen and (max-width: 1024px) {
+}
+@media screen and (max-width: 800px) {
+}
+@media screen and (max-width: 600px) {
+}
+@media screen and (max-width: 414px) {
+}
+@media screen and (max-width: 375px) {
+}
+
+### Responsive 3
+
+###	Bootstrap 
+.col			Tất cả các màn hình
+.col-sm-{size}	Màn hình nhỏ 			(>= 576px)
+.col-md-{size}	Màn hình trung bình 	(>= 768px)
+.col-lg-{size}	Màn hình lớn 			(>= 992px)
+.col-xl-{size}	Màn hình cực lớn 		(>= 1200px)

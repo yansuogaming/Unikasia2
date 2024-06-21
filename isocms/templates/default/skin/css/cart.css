@@ -1,0 +1,1012 @@
+*,
+:after,
+:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: SF-Pro-Regular;
+    font-display: swap;
+    src: url(../font/SF-Pro-Regular.otf);
+}
+
+@font-face {
+    font-family: SF-Pro-Medium;
+    font-display: swap;
+    src: url(../font/SF-Pro-Medium.otf);
+}
+
+a,
+abbr,
+acronym,
+address,
+applet,
+big,
+blockquote,
+body,
+caption,
+cite,
+code,
+dd,
+del,
+dfn,
+div,
+dl,
+dt,
+fieldset,
+font,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+object,
+ol,
+p,
+pre,
+q,
+s,
+samp,
+small,
+span,
+strike,
+strong,
+sub,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr,
+tt,
+ul,
+var {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    vertical-align: baseline;
+    font-family: SF-Pro-Regular, sans-serif;
+}
+
+a,
+blockquote,
+button,
+code,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+legend,
+p,
+pre,
+select,
+span,
+sub,
+td,
+textarea,
+th {
+    color: #111D37;
+    font-family: SF-Pro-Regular, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+a,
+button,
+input[type="reset"],
+input[type="submit"] {
+    cursor: pointer;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+i {
+    font-style: italic;
+}
+
+strong,
+strong a {
+    font-family: 'ROBOTO-BOLD';
+}
+
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+a img,
+img {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: #111D37;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+.hidden {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.width-100 {
+    width: 100% !important;
+}
+
+.width-90 {
+    width: 90% !important;
+}
+
+.width-80 {
+    width: 80% !important;
+}
+
+.width-70 {
+    width: 70% !important;
+}
+
+.width-60 {
+    width: 60% !important;
+}
+
+.width-50 {
+    width: 50% !important;
+}
+
+.width-40 {
+    width: 40% !important;
+}
+
+.width-30 {
+    width: 30% !important;
+}
+
+.width-20 {
+    width: 20% !important;
+}
+
+.width-10 {
+    width: 10% !important;
+}
+
+/* css image */
+.div_img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+    -o-object-fit: cover !important;
+    object-fit: cover !important;
+    -o-object-position: center center !important;
+    object-position: center center !important;
+}
+
+.ellipsis_1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.ellipsis_2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.ellipsis_3 {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.ellipsis_4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.ellipsis_5 {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.title_interested {
+    line-height: 28px;
+    text-align: left;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.unika_booking {
+    position: relative;
+}
+
+.unika_logo_booking {
+    max-width: 143px;
+}
+
+.head_booking {
+    float: left;
+    width: 100%;
+}
+
+.booking .div_img,
+.enter_info,
+.payment {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 4px solid #FFFFFF;
+}
+
+img {}
+
+.unika_logo_booking {
+    max-width: 143px;
+}
+
+.unika_contact {
+    gap: 29px;
+}
+
+.unika_contact .email,
+.unika_contact .phone {
+    gap: 6px;
+}
+
+.unika_contact span {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.unika_contact span {
+    color: var(--Neutral-2, #434B5C);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.enter_info {
+    background: #FFBA55;
+}
+
+.payment {
+    background: #D3DCE1;
+}
+
+.booking {
+    padding-top: 25px;
+    padding-bottom: 58px;
+    box-shadow: 0px 12px 32px 0px rgba(125, 135, 158, 0.09);
+}
+
+.head_booking .head {
+    padding: 19px 0;
+    border-bottom: 1px solid #ecedef;
+}
+
+.input_start {
+    background: url(../images/booking/icon_input.svg) no-repeat;
+    background-position: 12px center;
+    background-size: 20px 20px;
+    padding: 12px 12px 12px 42px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #D3DCE1;
+}
+
+.input_end {
+    background: url(../images/booking/icon_input.svg) no-repeat, #D3DCE1;
+    background-position: 12px center;
+    background-size: 20px 20px;
+    padding: 12px 12px 12px 42px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #D3DCE1;
+}
+
+.item_travelers .number {
+    padding: 3px;
+    border: 1px solid #D3DCE1;
+    border-radius: 18px;
+    height: fit-content;
+    gap: 10px;
+}
+
+.item_calc {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: #FFFFFF;
+    background: #D3DCE1;
+    border: unset;
+}
+
+.item_calc.active {
+    background: #FFA718;
+}
+
+.item_booking {
+    position: relative;
+}
+
+.text_booking {
+    position: absolute;
+    width: max-content;
+    top: 26px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    color: var(--Neutral-1, #111D37);
+}
+
+.text_booking_payment {
+    color: var(--Neutral-3, #959AA4);
+}
+
+.line1_booking,
+.line2_booking {
+    width: calc(50% - 20px);
+}
+
+.line1_booking {
+    border: 1px solid #13B97D;
+}
+
+.line2_booking {
+    border: 1px solid #D3DCE1;
+}
+
+.title_booking {
+    padding: 24px 28px;
+    background: #FFF9F1;
+    font-size: 24px;
+    line-height: 36px;
+    border: 1px solid #F0F0F0;
+    border-radius: 8px 8px 0 0;
+    font-weight: 600;
+    color: #FFA718;
+}
+
+.item_booking_content .content {
+    padding: 32px 28px;
+    gap: 26px;
+}
+
+.item_booking_content {
+    background: #FFFFFF;
+    border: 1px solid #F0F0F0;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.title_content {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    color: var(--Neutral-1, #111D37);
+}
+
+/* Custom checkbox */
+/* The container */
+.item_checkbox {
+    display: block;
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 22px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #434B5C;
+    width: fit-content;
+}
+
+/* Hide the browser's default checkbox */
+.item_checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.item_checkbox .checkmark {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: #FFFFFF;
+    border: 1px solid #F0F0F0;
+    border-radius: 4px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.item_checkbox input:checked~.checkmark {
+    background-color: #FFA718;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.item_checkbox input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.item_checkbox .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.calc_distribution {
+    padding: 12px;
+    border: 1px solid #D3DCE1;
+    border-radius: 4px;
+    gap: 19px;
+    display: none;
+}
+
+.item_calc_dis {
+    width: 24px;
+    height: 24px;
+}
+
+.calc_distribution .plus {
+    background: url(../images/booking/plus1.svg) no-repeat;
+    background-size: 100%;
+}
+
+.calc_distribution .minus {
+    background: url(../images/booking/minus1.svg) no-repeat;
+    background-size: 100%;
+}
+
+.calc_distribution .plus.active {
+    background: url(../images/booking/plus.svg) no-repeat;
+    background-size: 100%;
+}
+
+.calc_distribution .minus.active {
+    background: url(../images/booking/minus.svg) no-repeat;
+    background-size: 100%;
+}
+
+.information-3 {
+    width: calc(32.5% - 9px);
+    gap: 4px;
+}
+
+.information-7 {
+    width: calc(66% - 9px);
+    gap: 4px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    background: url(../images/booking/icon_select.svg) no-repeat;
+    background-size: 100%;
+    border-color: unset;
+    border-style: unset;
+    border-width: unset;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    left: -30%;
+}
+
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+    transform: rotate(180deg);
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 48px;
+}
+
+.select2-container .select2-selection--single {
+    height: 48px;
+    border: 1px solid #D3DCE1;
+}
+
+.information_input {
+    height: 48px;
+    border: 1px solid #D3DCE1;
+    border-radius: 4px;
+    padding: 0 12px;
+}
+
+/* custom css radio */
+
+/* The container */
+.item_radio {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 16px;
+    padding-top: 3px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #434B5C;
+}
+
+/* Hide the browser's default radio button */
+.item_radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.item_radio .checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    border: 1px solid #F0F0F0;
+}
+
+/* When the radio button is checked, add a blue background */
+.item_radio input:checked~.checkmark {
+    background-color: #FFA718;
+    border: unset;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.item_radio input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.item_radio .checkmark:after {
+    top: 8px;
+    left: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+.describe {
+    padding: 20px;
+    border: 1px solid #D3DCE1;
+    border-radius: 4px;
+    display: none;
+}
+
+.btn_payment {
+    padding: 12px 112px;
+    border-radius: 8px;
+    border: unset;
+    background: #FFA718;
+}
+
+.btn_payment.false {
+    background: #D3DCE1;
+    gap: 8px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    color: var(--Neutral-6, #FFF);
+}
+
+.booking_content {
+    padding: 60px 0;
+    position: relative;
+    float: left;
+}
+
+.booking_left {
+    width: calc(100% - 440px);
+    gap: 48px;
+}
+
+.summary,
+.subtotal {
+    padding: 24px 20px;
+    border: 1px solid #D3DCE1;
+    border-radius: 8px;
+    gap: 20px;
+}
+
+.summary .div_img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.booking_right {
+    max-width: 404px;
+    width: 100%;
+    gap: 12px;
+}
+
+.summary .title {
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 600;
+    color: var(--Neutral-1, #111D37);
+}
+
+.item_content {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #D3DCE1;
+    gap: 16px;
+}
+
+.span_title {
+    width: 35%;
+    text-align: left;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    color: var(--Neutral-3, #959AA4);
+}
+
+.span_content,
+.span_content span {
+    width: 65%;
+    text-align: right;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    color: var(--Neutral-1, #111D37);
+}
+
+.item_input {
+    width: calc(49% - 15px);
+    gap: 4px;
+}
+
+.item_travelers .title {
+    min-width: 60px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    color: var(--Neutral-1, #111D37);
+}
+
+.footer_booking {
+    float: left;
+    width: 100%;
+    padding: 20px 0;
+    border-top: 1px solid #D3DCE1;
+}
+
+.calc_distribution.active {
+    display: flex;
+}
+
+.main-container {
+    float: left;
+    width: 100%;
+}
+
+.describe.active {
+    display: block;
+}
+
+.value_travelers {
+    min-width: 30px;
+}
+
+.item_input label {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    color: #111D37;
+}
+
+.unika_travel {
+    gap: 30px;
+}
+
+.number_travelers {
+    gap: 15px;
+}
+
+.unika_number_travel {
+    gap: 35px;
+}
+
+.item_travelers {
+    gap: 28px;
+}
+
+.unika_travel_span {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--Neutral-3, #959AA4);
+}
+
+.item_checkbox_title {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    color: var(--Neutral-1, #111D37);
+}
+
+.item_checkbox_money {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--Primary, #FFA718);
+}
+
+.item_checkbox_money span {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    color: var(--Primary, #FFA718);
+    margin-left: 1px;
+}
+
+.other_services label {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    color: var(--Neutral-1, #111D37);
+}
+
+.contact_information .item_checkbox .checkmark {
+    top: 0;
+}
+
+.contact_information .content {
+    gap: 18px;
+}
+
+.payment_methods label {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    color: var(--Neutral-1, #111D37);
+}
+
+.describe span {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--Neutral-2, #434B5C);
+}
+
+.booking_right_content {
+    gap: 16px;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.unika_social {
+    position: fixed;
+    top: 40%;
+    right: 15px;
+    z-index: 3;
+}
+
+.unika_social_icons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.unika_social_icon {
+    color: #959AA4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background: #FFF;
+    box-shadow: 0px 12px 32px 0px rgba(125, 135, 158, 0.09);
+}
+
+.unika_social_icon:hover {
+    color: #FFA718;
+    box-shadow: 0px 12px 24px 0px rgba(255, 167, 24, 0.36);
+}
+
+.footer_booking span {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--Neutral-2, #434B5C);
+}
+
+.image_cart {
+    width: 390px;
+    margin: 0 auto 40px;
+}
+.text {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
+}
+.text h2 {
+    font-size: 34px;
+    line-height: 40px;
+    margin: 0 0 15px;
+}
+ .text p {
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0 0 40px;
+}
+.text a {
+    font-size: 18px;
+    display: block;
+    margin: 0 auto;
+    width: 220px;
+    line-height: 56px;
+    border-radius: 80px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1175px) {
+
+    .information-3,
+    .information-7 {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .summary .div_img img {
+        width: 100%;
+    }
+
+    .item_input {
+        width: 100%;
+    }
+
+    .booking_content {
+        flex-direction: column-reverse;
+        gap: 30px;
+    }
+
+    .booking_right,
+    .booking_left {
+        width: 100%;
+        max-width: 100%;
+    }
+}

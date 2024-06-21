@@ -1,0 +1,519 @@
+.att_content {
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--Neutral-4, #d3dce1);
+}
+
+.att_exciting_trip {
+    padding-top: 57px;
+    padding-bottom: 27px;
+}
+
+.att_exciting_trip_title h2 {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 52px;
+    margin-bottom: 10px;
+}
+
+.att_exciting_trip_item {
+    display: flex;
+    padding: 12px;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--Neutral-5, #f0f0f0);
+}
+
+.att_exciting_trip_item_title h3 {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px;
+}
+
+.att_exciting_trip_item_intro {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.att_exciting_trip_item_rate,
+.att_exciting_trip_item_description,
+.att_exciting_trip_item_place,
+.att_exciting_trip_item_trip,
+.att_exciting_trip_item_style {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+
+    color: var(--Neutral-2, #434b5c);
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.att_exciting_trip_item_rate .number {
+    display: inline-flex;
+    padding: 2px 6px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 4px;
+    background: var(--Semantic-4, #13b97d);
+    color: var(--Background, #f9f9f9);
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.att_exciting_trip_item_rate .title {
+    color: #13b97d;
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.att_exciting_trip_item_rate .total {
+    color: var(--Neutral-3, #959aa4);
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.att_exciting_trip_item .icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    font-size: 20px;
+}
+
+.att_exciting_trip_item_description .icon {
+    opacity: 0.5;
+    transform: rotateY(180deg) rotateX(0);
+}
+
+.att_exciting_trip_item_place .description_more {
+    padding: 0 8px;
+    border-radius: 2px;
+    background: #ffeed3;
+    color: var(--Primary, #ffa718);
+    text-align: center;
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.att_exciting_trip_item img {
+    border-radius: 8px;
+}
+
+.att_exciting_trip_item_detail {
+    display: flex;
+    padding: 12px;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #004ea8;
+}
+
+.att_exciting_trip_item_date {
+    color: var(--Neutral-6, #fff);
+    text-align: right;
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 12px;
+}
+
+.att_exciting_trip_item_price_old {
+    color: var(--Neutral-6, #fff);
+    text-align: right;
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.att_exciting_trip_item_price_old span {
+    text-decoration: line-through;
+}
+
+.att_exciting_trip_item_price_new {
+    color: var(--Primary, #ffa718);
+    text-align: right;
+    font-family: "SF Pro Display";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+.att_exciting_trip_item_price_new span {
+    font-size: 24px;
+}
+
+.att_exciting_trip_item_detail a {
+    display: flex;
+    padding: 12px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: 8px;
+    background: var(--Primary, #ffa718);
+    color: var(--Neutral-6, #fff);
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-top: 82px;
+    width: 100%;
+    transition: ease-in-out all 0.3s;
+}
+.att_exciting_trip_item_detail a:hover {
+    background: #e88f00;
+}
+.att_exciting_trip_content .btn_more {
+    color: var(--Semantic-3, #ffba55);
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    display: table;
+    margin: 0 auto;
+}
+
+.att_list_hotel {
+    padding-bottom: 60px;
+}
+
+.att_list_hotel_title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.att_list_hotel_title h2 {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 52px;
+}
+
+.att_list_hotel_title a {
+    color: var(--Semantic-3, #ffba55);
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.att_hotel_content_item {
+    margin-bottom: 30px;
+}
+
+.att_hotel_content_item img {
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.att_hotel_content_item_intro {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.att_hotel_content_item_type,
+.att_hotel_content_item_place,
+.att_hotel_content_item_rate {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    color: var(--Neutral-2, #434b5c);
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    align-items: center;
+}
+
+.att_hotel_content_item_title h3 {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+}
+
+.att_hotel_content_item_star {
+    color: #ffa718;
+}
+
+.att_hotel_content_item_intro .icon {
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.att_hotel_content_item_rate .number {
+    border-radius: 4px 4px 4px 0px;
+    background: var(--Accent-2, #004ea8);
+    padding: 4px;
+    color: #fff;
+}
+
+.att_hotel_content_item_rate .total {
+    color: var(--Neutral-3, #959aa4);
+    font-size: 12px;
+}
+
+.att_hotel_content_item_detail {
+    text-align: right;
+    color: var(--Neutral-3, #959aa4);
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+.att_hotel_content_item_detail .price_title {
+    color: var(--Primary, #ffa718);
+    font-size: 18px;
+}
+
+.att_hotel_content_item_detail .price_number {
+    color: var(--Primary, #ffa718);
+    font-size: 24px;
+}
+
+.att_list_placetogo_title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.att_list_placetogo_title h2 {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 52px;
+}
+
+.att_list_placetogo_title a {
+    color: var(--Semantic-3, #ffba55);
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.att_list_placetogo_item img {
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.att_list_placetogo_item_title h3 {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    margin-bottom: 4px;
+}
+
+.att_list_placetogo_item_description {
+    color: var(--Neutral-2, #434b5c);
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.att_list_cuisine_title {
+    margin-top: 60px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.att_list_cuisine_title h2 {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 52px;
+}
+
+.att_list_cuisine_title a {
+    color: var(--Semantic-3, #ffba55);
+    font-family: "SF Pro Display";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.att_cuisine_item img {
+    border-radius: 8px;
+}
+
+.att_cuisine_item_intro {
+    margin-top: -16px;
+    display: flex;
+    padding: 25px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--Neutral-5, #f0f0f0);
+    background: #fff;
+    position: relative;
+}
+
+.att_cuisine_item_title h3 {
+    color: var(--Neutral-1, #111d37);
+    font-family: "SF Pro Display";
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+}
+
+.att_cuisine_item_description {
+    color: var(--Neutral-3, #959aa4);
+    font-family: "SF Pro Display";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.att_list_cuisine_content {
+    position: relative;
+}
+
+.att_list_cuisine_content .owl-prev,
+.att_list_cuisine_content .owl-next {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 100px;
+    background: #fff !important;
+    box-shadow: 0px 12px 32px 0px rgba(125, 135, 158, 0.09);
+}
+
+.att_list_cuisine_content .owl-prev {
+    position: absolute;
+    top: 38%;
+    left: 22px;
+}
+
+.att_list_cuisine_content .owl-next {
+    position: absolute;
+    top: 38%;
+    right: 22px;
+}
+
+.att_list_cuisine_content .owl-prev:hover,
+.att_list_cuisine_content .owl-next:hover {
+    background: #869791 !important;
+}
+
+.att_list_cuisine {
+    margin-bottom: 100px;
+}
+
+/* Reponsive */
+@media screen and (max-width: 1170px) {
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 800px) {
+    .att_exciting_trip_item img {
+        width: 100%;
+        height: unset;
+        object-fit: cover;
+    }
+
+    .att_exciting_trip_item_intro {
+        margin: 12px 0;
+    }
+
+    .att_exciting_trip_item_detail a {
+        margin-top: 20px;
+    }
+
+    .att_hotel_content_item img {
+        width: 100%;
+        height: unset;
+        max-height: 340px;
+        object-fit: cover;
+    }
+
+    .att_list_placetogo_item {
+        margin-top: 30px;
+    }
+
+    .att_list_placetogo_item img {
+        width: 100%;
+        height: unset;
+        max-height: 340px;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 600px) {
+}
+
+@media screen and (max-width: 414px) {
+}
+
+@media screen and (max-width: 375px) {
+}
