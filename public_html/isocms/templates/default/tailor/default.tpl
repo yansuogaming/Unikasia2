@@ -192,14 +192,30 @@
           <div class="row">
             <div class="col-md-6">
               <label for="meals" class="txtlabel">Meals</label>
-              <select class="form-select select-input-inf" id="meals">
-                <option value="" disabled selected hidden>-- Please Select --</option>
-                <option value="mr">{$clsTourItinerary->getGoodMeal($tour_id)}</option>
-                <option value="ms">Ms.</option>
-                <option value="mrs">Mrs.</option>
-                <option value="dr">Dr.</option>
-              </select>
+              <div id="check_meals" class="check_meals">
+    <div id="selectButton">-- Please Select --
+    <i id="arrowIcon" class="fa fa-angle-down" aria-hidden="true"></i> 
+
+    </div> 
+    <ul id="mealsList" class="check_meals--ul list_style_none">
+        {if $lstMeals}
+            {section name=i loop=$lstMeals}
+                <li>
+                    <label class="label_meal">
+                        <input class="chkid_city" type="checkbox" name="tour_meal_id[]" value="{$lstMeals[i].tour_property_id}"> 
+                        <span class="lbl_input">{$lstMeals[i].title}</span>
+                    </label>
+                </li>
+            {/section}
+        {/if}
+    </ul>
+</div>
+
+              
+              
+              
             </div>
+            
             <div class="col-md-6">
               <label for="suitabletime" class="txtlabel">The most suitable time to reach you</label>
               <input type="suitable" class="form-control select-input-inf" id="suitabletime" placeholder="In the morning, the afternoon,... or at a specific time">
@@ -579,5 +595,51 @@
     var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return regex.test(email);
   }
+
+
+
+const selectButton = document.getElementById("selectButton");
+const mealsList = document.getElementById("mealsList");
+const arrowIcon = document.getElementById("arrowIcon");
+
+// Ẩn danh sách checkbox khi trang được tải
+mealsList.style.display = "none";
+
+selectButton.addEventListener("click", () => {
+    if (mealsList.style.display === "none") {
+        mealsList.style.display = "block";
+        arrowIcon.classList.remove("fa-angle-down");
+        arrowIcon.classList.add("fa-angle-up");
+    } else {
+        mealsList.style.display = "none";
+        arrowIcon.classList.remove("fa-angle-up");
+        arrowIcon.classList.add("fa-angle-down");
+    }
+});
+
+const checkboxes = document.querySelectorAll(".chkid_city");
+checkboxes.forEach(checkbox => {
+    checkbox.addEventListener("change", () => {
+        const selectedMeals = [];
+        checkboxes.forEach(cb => {
+            if (cb.checked) {
+                selectedMeals.push(cb.nextElementSibling.textContent);
+            }
+        });
+
+        const arrowIcon = selectButton.querySelector("#arrowIcon"); // Lấy biểu tượng mũi tên
+        if (selectedMeals.length > 0) {
+            selectButton.textContent = selectedMeals.join(", ");
+            selectButton.appendChild(arrowIcon); // Thêm lại biểu tượng mũi tên
+        } else {
+            selectButton.textContent = "-- Please Select --";
+            selectButton.appendChild(arrowIcon); // Thêm lại biểu tượng mũi tên
+        }
+    });
+});
+
+
+
+
 </script>
 {/literal}

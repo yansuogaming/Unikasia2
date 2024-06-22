@@ -1,0 +1,470 @@
+.listblog_breadcrumb {
+	padding: 1px 0 0px 0;
+    background: #fff;
+    border-top-left-radius: 54px;
+    border-top-right-radius: 54px;
+    position: relative;
+    z-index: 2;
+    top: 10%;
+    margin-top: -2.75rem
+}
+.breadcrumb_list {
+    display: flex;
+    align-items: center;
+    margin-top: 32px;
+	margin-bottom: 31px;
+  }
+
+.txt_youarehere {
+    color: #111D37;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    margin-right: 24px;
+    margin-bottom: 0; 
+    line-height: 24px;  
+  }
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: none; 
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  content: "";
+  display: inline-block;
+  margin: 0 8px; 
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 900;
+  content: "\f054";
+  color: #ffa718; 
+}
+
+.breadcrumb .container {
+    display: flex;
+    align-items: center;
+  }
+  
+.breadcrumb ol {
+    margin-top: 0;    
+    margin-bottom: 0; 
+  }
+  
+.breadcrumb-item {
+    line-height: 24px; 
+  }
+  
+.breadcrumb-item a { 
+  color: #FFA718;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  text-decoration: none;
+  }
+
+.breadcrumb-item.active {
+  color: #111D37;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  }
+
+ 
+.txt_plantrip {
+    color: #111D37;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 52px; /* 162.5% */
+    position: sticky;
+	margin-bottom: 20px;
+}
+
+  
+.txt_plantrip::after {
+      content: "";
+      position: absolute;
+      transform: translate(-50%, -50%);
+      height: 10px;
+      background-color: #ffa718;
+      z-index: -1;
+      width: 19%;
+      left: 48%;
+      bottom: 18%;
+}
+
+.txt_desplantrip {
+    color:  #434B5C;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+
+.txt_desplantrip {
+	margin-bottom: 48px;
+}
+
+.travelinf {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+
+}
+
+.txt_inftravel {
+    width: 100%;
+    max-width: 840px;
+    min-height: 76px;
+    flex-shrink: 0;
+    border-radius: 8px 8px 0px 0px;
+    border: 1px solid #F0F0F0;
+    background: #FFF9F1;
+    margin: 0 auto 48px auto;
+}
+
+.txt_infotravel {
+    color: #FFA718;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px; /* 150% */
+    padding: 24px 0px 16px 28px;
+}
+
+.input_inf {
+    display: flex;
+    flex-direction: column;
+    /* border-radius: 8px; */
+    border: 1px solid var(--Neutral-5, #F0F0F0);
+    background: #FFF;
+
+    /* Shadow/1 */
+    box-shadow: 0px 12px 32px 0px rgba(125, 135, 158, 0.09);
+    padding: 32px 27px 40px 28px;
+    gap: 26px;
+}
+
+.input_inf2 {
+	    display: flex;
+    flex-direction: column;
+    /* border-radius: 8px; */
+    border: 1px solid var(--Neutral-5, #F0F0F0);
+    background: #FFF;
+    box-shadow: 0px 12px 32px 0px rgba(125, 135, 158, 0.09);
+	padding: 20px 27px 40px 28px;
+
+}
+
+.txtlabel {
+    color: #111D37;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    margin-bottom: 4px;
+}
+.select-input-inf, 
+.date_travel {
+    height: 48px;
+    padding: 12px 10px 12px 12px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date_travel {
+		width: 100%;
+	max-width: 250px;
+}
+
+.txt_smalltrip {
+    color: #828282;
+    font-family: "Nunito Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+	margin-bottom: 4px;
+}
+
+.txt_destinations {
+    color:  #111D37;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px; /* 150% */
+	margin-bottom: 24px;
+}
+
+.accordion-item{
+    margin-bottom: 16px;
+    border-radius: 0px !important;
+/*    box-shadow:0px 1px 4px 0px #bfbfbf;*/
+	border: none;
+  }
+  
+  .accordion-button[aria-expanded="true"]{
+    background-color: transparent;
+    color:#404040;
+  /*   box-shadow:0px 1px 2px 2px #fffff7; */
+	  z-index: 1;
+  }
+
+.accordion {
+	--bs-accordion-border-width: 0px;
+}
+
+  .accordion-button:after{
+    color:#404040 !important;
+	background-image: var(--bs-accordion-btn-icon) !important;
+  }
+
+  /* Đổi màu nền của accordion item khi active */
+.accordion-item.active .accordion-button {
+    background-color: #f0f0f0;
+  }
+  
+  .accordion-button {
+    color: #333;
+	  padding: 0;
+  }
+
+.form-region {
+    display: flex;
+    padding: 9px 10px;
+    align-items: center;
+/*    gap: 8px;*/
+    border-radius: 4px;
+    border: 1px solid #CCC;
+    background: #FBFBFB;
+	margin-top: 12px;
+}
+
+.form-region:hover {
+    border-radius: 4px;
+    border: 1px solid var(--Primary, #FFA718);
+    background: #FFF7EC;
+}
+
+.txt_roomtype {
+	color: var(--Neutral-1, #111D37);
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px; /* 150% */
+}
+
+input::placeholder {
+  color: rgba(149, 154, 164, 1);
+}
+
+.txt_require {
+	display: flex;
+	width: 785px;
+	height: 152px;
+	padding: 12px 10px 12px 12px;
+	align-items: flex-start;
+	gap: 10px;
+	flex-shrink: 0;
+}
+
+.txt_captcha_btn {	
+	width: 100%;
+    max-width: 840px;
+    min-height: 76px;
+    flex-shrink: 0;
+    /* background: #FFF9F1; */
+    margin: 0 auto 48px auto;
+}
+
+.txt_requirement2 {
+	color: #434B5C;
+	text-align: center;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+	margin-bottom: auto;
+}
+
+.g-recaptcha {
+	display: flex;
+	margin-top: 31px;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+}
+
+.btn_rqfQ {
+	justify-content: center;
+	display: flex;
+	align-content: center;
+	align-items: center;
+	margin-bottom: 112px;
+}
+
+.btnrq {
+	width: 100%;
+	max-width: 357px;
+	height: 55px;
+	padding: 12px 20px;
+	flex-shrink: 0;
+	border-radius: 8px;
+	background: #FFA718;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 32px;
+	color: #FFF;
+	border:none;
+}
+
+.btn_rqfQ .btnrq:hover {
+	background: #e88f00 !important;
+	color: #FFF;
+}
+
+.select-input-inf option:disabled {
+	color: var(--Neutral-3, #959AA4) !important; 
+	font-family: "SF Pro Display" !important;
+	font-size: 16px !important;
+	font-style: normal !important;
+	font-weight: 400 !important;
+	line-height: 24px !important;
+}
+
+.input_txttravel {
+	display: flex;
+	max-width: 785px;
+	padding: 12px 10px 12px 12px;
+	align-items: flex-start;
+	gap: 10px;
+	flex-shrink: 0;
+	border-radius: 4px;
+	border: 1px solid var(--Neutral-4, #D3DCE1);
+	width: 100%;
+}
+
+.accordion-button {
+	border: none; /* This removes the border around the accordion button */
+}
+
+.accordion-button {
+  display: flex; /* Enables flexbox layout */
+  align-items: center; /* Aligns content vertically within the button */
+}
+
+.form-check-label {
+  display: flex; /* Enables flexbox layout for the label */
+  align-items: center; /* Aligns content vertically within the label */
+  margin-right: 0; /* Removes default margin from the label */
+}
+
+.form-check-input.chkAll {  /* Targets the specific checkbox class */
+  margin-top: 0; /* Adjust margin as needed for fine-tuning */
+}
+
+
+.accordion-body {
+	padding: 0;
+	margin-top: 16px;
+}
+.input-group {
+	position: relative; 
+}
+
+
+#input-other {
+	margin-bottom: 24px;
+}
+
+.input-group i {
+	position: absolute;
+	left: 10px;        
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none; 
+	z-index: 1;
+}
+
+#ui-datepicker-div {
+	z-index: 1 !important;
+}
+
+#arrival_date {
+	z-index: auto;
+}
+.input-group input::after {
+  content: "\f133"; /* Unicode của icon lịch trong Font Awesome 6 Pro */
+  font-family: "Font Awesome 6 Pro"; /* Thay đổi font-family */
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 100 !important; /* Tăng z-index và thêm !important */
+}
+
+
+
+.input-group input {
+	padding-left: 35px;
+	height: 48px;
+	
+}
+
+.input_informationtrip .error {
+  font-size: 14px;
+  color: red;
+  margin: 5px 0 0;
+}
+
+.form-check-input:checked[type="checkbox"] {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%; /* Điều chỉnh kích thước dấu tích nếu cần */
+}
+
+.box_input > input, .box_input > select {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  color: #242424;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 30px;
+  padding: 0 16px;
+  }
+  .box_input > select {
+      padding-right: 30px;
+  }
+
+  #check_meals #selectButton {
+    /* Style cho nút bấm */
+    padding: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    display: flex; /* Sử dụng flexbox để sắp xếp */
+    justify-content: space-between; /* Đẩy các phần tử ra xa nhau */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
