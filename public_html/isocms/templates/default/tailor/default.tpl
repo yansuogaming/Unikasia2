@@ -2,6 +2,8 @@
 <link href="https://fonts.cdnfonts.com/css/nunito-sans" rel="stylesheet">
 
 
+
+
 <section class="listblogdetail_breadcrumb">
   <div class="breadcrumb_list">
     <div class="container">
@@ -193,29 +195,26 @@
             <div class="col-md-6">
               <label for="meals" class="txtlabel">Meals</label>
               <div id="check_meals" class="check_meals">
-    <div id="selectButton">-- Please Select --
-    <i id="arrowIcon" class="fa fa-angle-down" aria-hidden="true"></i> 
+                <div id="selectButton">-- Please Select --
+                  <i id="arrowIcon" class="fa fa-angle-down" aria-hidden="true"></i>
 
-    </div> 
-    <ul id="mealsList" class="check_meals--ul list_style_none">
-        {if $lstMeals}
-            {section name=i loop=$lstMeals}
-                <li>
+                </div>
+                <ul id="mealsList" class="check_meals--ul list_style_none">
+                  {if $lstMeals}
+                  {section name=i loop=$lstMeals}
+                  <li>
                     <label class="label_meal">
-                        <input class="chkid_city" type="checkbox" name="tour_meal_id[]" value="{$lstMeals[i].tour_property_id}"> 
-                        <span class="lbl_input">{$lstMeals[i].title}</span>
+                      <input class="chkid_city" type="checkbox" name="tour_meal_id[]" value="{$lstMeals[i].tour_property_id}">
+                      <span class="lbl_input">{$lstMeals[i].title}</span>
                     </label>
-                </li>
-            {/section}
-        {/if}
-    </ul>
-</div>
+                  </li>
+                  {/section}
+                  {/if}
+                </ul>
+              </div>
 
-              
-              
-              
             </div>
-            
+
             <div class="col-md-6">
               <label for="suitabletime" class="txtlabel">The most suitable time to reach you</label>
               <input type="suitable" class="form-control select-input-inf" id="suitabletime" placeholder="In the morning, the afternoon,... or at a specific time">
@@ -235,20 +234,14 @@
 
                   <div class="accordion-item">
                     <div class="accordion-header" id="panelsStayOpen-heading{$lstCountry[i].country_id}">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse{$lstCountry[i].country_id}" aria-expanded="false" aria-controls="panelsStayOpen-collapse{$lstCountry[i].country_id}">
-                        <input class="form-check-input chkAll me-2" type="checkbox" value="" id="chkAccordion{$lstCountry[i].country_id}All" checked>
+                      <button class="accordion-button collapsed" type="button"  data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse{$lstCountry[i].country_id}" aria-expanded="false" aria-controls="panelsStayOpen-collapse{$lstCountry[i].country_id}">
+                        <input class="form-check-input chkAll me-2" type="checkbox" value="" id="chkAccordion{$lstCountry[i].country_id}All">
                         <label class="form-check-label" for="chkAccordion{$lstCountry[i].country_id}All">{$lstCountry[i].title}</label>
                       </button>
                     </div>
 
                     <div id="panelsStayOpen-collapse{$lstCountry[i].country_id}" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading{$lstCountry[i].country_id}">
                       <div class="accordion-body d-flex flex-wrap" style="gap:12px">
-                        <div class="form-check form-region me-3">
-                          <input class="form-check-input form-check-region" type="checkbox" value="" id="chkAccordion3Child0">
-                          <label class="form-check-label" for="chkAccordion3Child0">Test</label>
-
-                        </div>
-
                         <div class="form-check form-region me-3">
                           <input class="form-check-region" type="checkbox" value="" id="chkAccordion3Child1">
                           <label for="chkAccordion3Child1">Bac Ha</label>
@@ -598,48 +591,44 @@
 
 
 
-const selectButton = document.getElementById("selectButton");
-const mealsList = document.getElementById("mealsList");
-const arrowIcon = document.getElementById("arrowIcon");
+  const selectButton = document.getElementById("selectButton");
+  const mealsList = document.getElementById("mealsList");
+  const arrowIcon = document.getElementById("arrowIcon");
 
-// Ẩn danh sách checkbox khi trang được tải
-mealsList.style.display = "none";
+  // Ẩn danh sách checkbox khi trang được tải
+  mealsList.style.display = "none";
 
-selectButton.addEventListener("click", () => {
+  selectButton.addEventListener("click", () => {
     if (mealsList.style.display === "none") {
-        mealsList.style.display = "block";
-        arrowIcon.classList.remove("fa-angle-down");
-        arrowIcon.classList.add("fa-angle-up");
+      mealsList.style.display = "block";
+      arrowIcon.classList.remove("fa-angle-down");
+      arrowIcon.classList.add("fa-angle-up");
     } else {
-        mealsList.style.display = "none";
-        arrowIcon.classList.remove("fa-angle-up");
-        arrowIcon.classList.add("fa-angle-down");
+      mealsList.style.display = "none";
+      arrowIcon.classList.remove("fa-angle-up");
+      arrowIcon.classList.add("fa-angle-down");
     }
-});
+  });
 
-const checkboxes = document.querySelectorAll(".chkid_city");
-checkboxes.forEach(checkbox => {
+  const checkboxes = document.querySelectorAll(".chkid_city");
+  checkboxes.forEach(checkbox => {
     checkbox.addEventListener("change", () => {
-        const selectedMeals = [];
-        checkboxes.forEach(cb => {
-            if (cb.checked) {
-                selectedMeals.push(cb.nextElementSibling.textContent);
-            }
-        });
-
-        const arrowIcon = selectButton.querySelector("#arrowIcon"); // Lấy biểu tượng mũi tên
-        if (selectedMeals.length > 0) {
-            selectButton.textContent = selectedMeals.join(", ");
-            selectButton.appendChild(arrowIcon); // Thêm lại biểu tượng mũi tên
-        } else {
-            selectButton.textContent = "-- Please Select --";
-            selectButton.appendChild(arrowIcon); // Thêm lại biểu tượng mũi tên
+      const selectedMeals = [];
+      checkboxes.forEach(cb => {
+        if (cb.checked) {
+          selectedMeals.push(cb.nextElementSibling.textContent);
         }
+      });
+
+      const arrowIcon = selectButton.querySelector("#arrowIcon"); // Lấy biểu tượng mũi tên
+      if (selectedMeals.length > 0) {
+        selectButton.textContent = selectedMeals.join(", ");
+        selectButton.appendChild(arrowIcon); // Thêm lại biểu tượng mũi tên
+      } else {
+        selectButton.textContent = "-- Please Select --";
+        selectButton.appendChild(arrowIcon); // Thêm lại biểu tượng mũi tên
+      }
     });
-});
-
-
-
-
+  });
 </script>
 {/literal}

@@ -424,12 +424,12 @@ input::placeholder {
   margin: 5px 0 0;
 }
 
-.form-check-input:checked[type="checkbox"] {
+/* .form-check-input:checked[type="checkbox"] {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: center center;
-    background-size: 50% 50%; /* Điều chỉnh kích thước dấu tích nếu cần */
-}
+    background-size: 50% 50%;
+} */
 
 .box_input > input, .box_input > select {
   width: 100%;
@@ -454,6 +454,20 @@ input::placeholder {
     justify-content: space-between; /* Đẩy các phần tử ra xa nhau */
     align-items: center; /* Căn giữa theo chiều dọc */
 }
+
+/* .form-check-region:checked::after {
+  background-color: orange;
+  opacity: 0.7;
+  color: white;
+  z-index: 1;
+} */
+.form-check input:checked{
+  accent-color: orange;
+ border-color: #F0F0F0;
+}
+
+
+
 
 
 
