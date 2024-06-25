@@ -67,8 +67,7 @@
     font-size: 32px;
     font-style: normal;
     font-weight: 600;
-    line-height: 52px;
-    /* 162.5% */
+    line-height: 52px; /* 162.5% */
     letter-spacing: 0em;
     text-align: left;
     margin-bottom: 16px;
@@ -91,11 +90,9 @@
 .publish_date i {
     margin-right: 7px;
 }
-
 .author i {
     margin-right: 7px;
 }
-
 /* Blog Detail Header End*/
 
 /* Blog Detail Body */
@@ -113,11 +110,9 @@
     display: flex;
     flex-direction: column;
 }
-
 .content_blog img {
     width: 100%;
 }
-
 /* Blog Detail Body End */
 
 .item_blogdetail {
@@ -156,8 +151,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
-    line-height: 24px;
-    /* 150% */
+    line-height: 24px; /* 150% */
 }
 
 .txt_ico_share_star {
@@ -197,8 +191,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px;
-    /* 150% */
+    line-height: 24px; /* 150% */
 }
 
 .txt_des_tour {
@@ -207,16 +200,17 @@
 }
 
 .txt_overviewtour {
-    display: -webkit-box;
+	display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: #959AA4;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px;
+	color: #959AA4;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+    max-height: 62px;
 }
 
 /* CSS Related Tour */
@@ -239,8 +233,7 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
-    line-height: 28px;
-    /* 155.556% */
+    line-height: 28px; /* 155.556% */
 }
 
 .score_reviewtour {
@@ -258,7 +251,6 @@
     color: #fff;
     font-size: 14px;
 }
-
 .txt_score {
     color: #13b97d;
     font-size: 14px;
@@ -314,7 +306,6 @@
     display: flex;
     align-items: baseline;
 }
-
 .from_price {
     flex-direction: row;
 }
@@ -326,7 +317,6 @@
     font-weight: 500;
     line-height: 28px;
 }
-
 .txt_numbprice {
     color: #ffa718;
     font-size: 24px;
@@ -356,12 +346,11 @@
 */
 
 .border_exploremore img {
-    filter: brightness(70%);
-    width: 100%;
+	filter: brightness(70%);
+	width: 100%;
 }
-
 .txt_btnexploremore {
-    position: absolute;
+	position: absolute;
     top: 50%;
     left: 28px;
     right: 30px;
@@ -373,14 +362,14 @@
 }
 
 .tour_exploretxt {
-    color: #FFF;
-    text-align: center;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-    z-index: 2;
-    margin: 0;
+        color: #FFF;
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+    	z-index: 2;
+	margin: 0;
 }
 
 .border_exploremore {
@@ -393,16 +382,16 @@
 }
 
 .btn_seealltour {
-    display: table;
-    margin: 0 auto;
-    padding: 12px 20px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border-radius: 8px;
-    background: var(--Primary, #FFA718);
-    color: #fff;
-    border: none;
+        display: table;
+        margin: 0 auto;
+        padding: 12px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 8px;
+        background: var(--Primary, #FFA718);
+        color: #fff;
+		border: none;
 
 }
 
@@ -492,8 +481,7 @@
     font-size: 32px;
     font-style: normal;
     font-weight: 600;
-    line-height: 140%;
-    /* 44.8px */
+    line-height: 140%; /* 44.8px */
     text-decoration: none;
 }
 
@@ -511,8 +499,7 @@
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
-    line-height: 32px;
-    /* 160% */
+    line-height: 32px; /* 160% */
 }
 
 .txthigh_cateblog_ a {
@@ -709,11 +696,10 @@
 .rating input {
     display: none;
 }
-
 .rating label:hover,
-.rating label:hover~label,
-.rating input:checked+label,
-.rating input:checked+label~label {
+.rating label:hover ~ label,
+.rating input:checked + label,
+.rating input:checked + label ~ label {
     color: #ffc107;
 }
 
@@ -738,6 +724,11 @@
     margin-left: 8px;
 }
 
+/*
+.tag-link a::before {
+  content: "#";
+}
+*/
 
 .tag_blog .listtag {
     list-style: none;
@@ -763,8 +754,7 @@
 }
 
 .listtag .tag-link a:not(:empty)::before {
-    content: "#";
-    /* Nội dung của phần tử giả là ký tự # */
+    content: "#"; /* Nội dung của phần tử giả là ký tự # */
 }
 
 .list_readthenextitem {
@@ -1004,8 +994,7 @@
 }
 
 .intro p strong {
-    font-weight: normal;
-    /* Hoặc 400 */
+    font-weight: normal; /* Hoặc 400 */
 }
 
 .item_blogdetail .content_blog p img {

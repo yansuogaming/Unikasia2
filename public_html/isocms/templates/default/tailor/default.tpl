@@ -169,7 +169,10 @@
 
           <div class="row">
             <div class="col-md-6">
+              <div class="choose-participants">
+                <div class="label_box">
               <label for="participants" class="txtlabel">{$core->get_Lang('Participants')}</label>
+              </div>
               <select class="form-select select-input-inf" id="participants">
                 <i class="fa-regular fa-user"></i>
                 <option value="mr">Mr.</option>
@@ -178,6 +181,7 @@
                 <option value="dr">Dr.</option>
               </select>
             </div>
+</div>
             <div class="col-md-6">
               <label for="travelstyles" class="txtlabel ">{$core->get_Lang('Travel Styles &amp; Activities')}</label>
               <select class="form-select select-input-inf" id="travelstyles">
@@ -232,6 +236,7 @@
 
                   {section name=i loop=$lstCountry}
 
+
                   <div class="accordion-item">
                     <div class="accordion-header" id="panelsStayOpen-heading{$lstCountry[i].country_id}">
                       <button class="accordion-button collapsed" type="button"  data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse{$lstCountry[i].country_id}" aria-expanded="false" aria-controls="panelsStayOpen-collapse{$lstCountry[i].country_id}">
@@ -240,73 +245,26 @@
                       </button>
                     </div>
 
+
                     <div id="panelsStayOpen-collapse{$lstCountry[i].country_id}" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-heading{$lstCountry[i].country_id}">
                       <div class="accordion-body d-flex flex-wrap" style="gap:12px">
-                        <div class="form-check form-region me-3">
-                          <input class="form-check-region" type="checkbox" value="" id="chkAccordion3Child1">
-                          <label for="chkAccordion3Child1">Bac Ha</label>
+
+                      {assign var = cities value = $clsCountryEx->getListCity($lstCountry[i].country_id)}
+                      {section name=t loop=$cities}
+                        <div class="form-check form-region mr-12">
+                          <input class="form-check-region" type="checkbox" value="" id="chkAccordion{$lstCountry[t].country_id}Child{$smarty.section.t.index}">
+                          <label for="chkAccordion{$lstCountry[t].country_id}Child{$smarty.section.t.index}">{$clsCity->getTitle($cities[t].city_id)}</label>
                         </div>
+                        {/section}
 
-                        <!--
-											  <label class="cbx">One
-												  <input type="checkbox" checked="checked">
-												  <span class="checkmark"></span>
-												</label>
--->
-
-
-
-                        <div class="form-check form-region me-3">
-                          <input class="form-check-region" type="checkbox" value="" id="chkAccordion3Child2">
-                          <label for="chkAccordion3Child2">Ban Giuoc</label>
-                        </div>
-
-                        <div class="form-check form-region me-3">
-                          <input class="form-check-region" type="checkbox" value="" id="chkAccordion3Child2">
-                          <label for="chkAccordion3Child3">Cao Bang</label>
-                        </div>
 
                         <input type="txt-input-other" class="form-control select-input-inf" id="input-other" placeholder="Other">
-
                       </div>
                     </div>
                   </div>
                   {/section}
 
-                  <!--
-                                      <div class="accordion-item">
-                                        <div class="accordion-header" id="panelsStayOpen-heading{$lstCountry[i].country_id}">
-                                          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne" id="accordion1btn">
-                                            <input class="form-check-input chkAll me-2" type="checkbox" value="" id="chkAccordion1All">{$lstCountry[i].title}</button>
-                                        </div>
-                                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-                                          <div class="accordion-body d-flex flex-wrap" style="gap:12px">
-                                            <div class="form-check form-region me-3">
-                                      <input class="form-check-region" type="checkbox" value="" id="chkAccordion1Child0">
-                                              <label for="chkAccordion1Child0">Ba Be</label>
-                                    </div>
 
-                                    <div class="form-check form-region me-3">
-                                        <input class="form-check-region" type="checkbox" value="" id="chkAccordion1Child1">
-                                           <label for="chkAccordion1Child1">Bac Ha</label>
-                                      </div>
-
-                                      <div class="form-check form-region me-3">
-                                        <input class="form-check-region" type="checkbox" value="" id="chkAccordion1Child2">
-                                                <label for="chkAccordion1Child2">Ban Giuoc</label>
-                                      </div>
-
-                                      <div class="form-check form-region me-3">
-                                        <input class="form-check-region" type="checkbox" value="" id="chkAccordion1Child3">
-                                                <label for="chkAccordion1Child3">Cao Bang</label>
-                                      </div>
-
-                                    <input type="txt-input-other" class="form-control select-input-inf" id="input-other" placeholder="Other">
-
-                                          </div>
-                                        </div>
-                                      </div>
--->
 
                 </div>
               </div>
@@ -419,7 +377,9 @@
         {else}
         <div id="error_recaptcha" class="error text_left"></div>
         {/if}
-      </div>
+
+        <!-- <div class="g-recaptcha" data-sitekey="6LfH7cMpAAAAAAKENYh7nqX8XErSJ3kQIjNoN5KP" data-type="image"></div>
+      </div> -->
 
       <div class="btn_rqfQ text-center">
         <input type="hidden" name="plantrip" value="plantrip" />
@@ -430,6 +390,9 @@
     </div>
   </div>
 </section>
+
+<!-- <script src="https://www.google.com/recaptcha/api.js?fallback=true" async defer></script> -->
+
 
 
 {literal}
@@ -630,5 +593,31 @@
       }
     });
   });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const checkboxes = document.querySelectorAll('.chkAll');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const targetId = this.parentElement.dataset.bsTarget;
+            const collapseElement = document.getElementById(targetId);
+
+            if (this.checked) {
+                // Checkbox được chọn, mở rộng accordion
+                const collapse = new bootstrap.Collapse(collapseElement, {
+                    toggle: false // Ngăn chặn hành vi toggle mặc định của Bootstrap
+                });
+                collapse.show(); 
+            } else {
+                // Checkbox không được chọn, đóng accordion
+                const collapse = bootstrap.Collapse.getInstance(collapseElement);
+                if (collapse) {
+                    collapse.hide();
+                }
+            }
+        });
+    });
+});
+
 </script>
 {/literal}

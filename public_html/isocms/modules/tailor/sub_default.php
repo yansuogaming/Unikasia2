@@ -3,7 +3,7 @@
 function default_default(){
 
 	global $assign_list, $_CONFIG, $core, $dbconn, $mod, $act, $title_page,$description_page,$keyword_page;
-	global $clsISO, $_LANG_ID, $_lang, $extLang, $_frontIsLoggedin_user_id,$adult_type_id,$child_type_id;
+	global $clsISO, $_LANG_ID, $_lang, $extLang, $_frontIsLoggedin_user_id,$adult_type_id,$child_type_id,$age_type_id,$height_type_id,$infant_type_id;
 	
 	
 	$clsTailorProperty = new TailorProperty();
@@ -59,10 +59,11 @@ function default_default(){
 	$assign_list["clsCountry"] = $clsCountry;
 	#
 	$assign_list["lstCountryRegion"] = $clsCountry->getAll("1=1 and is_trash=0 order by order_no ASC",$clsCountry->pkey.",title");
-	
+
 	$clsCountryEx = new Country();
 	$assign_list["clsCountryEx"] = $clsCountryEx;
-	
+	// $assign_list["lstCountry"] = $clsCountryEx->getAll("is_trash=0 and is_online=1 order by order_no",$clsCountry->pkey.",title");
+
 	$clsTourDestination = new TourDestination();
     $assign_list["clsTourDestination"] = $clsTourDestination;
 	
@@ -79,20 +80,81 @@ function default_default(){
 	$lstTourItinerary = $clsTourItinerary->getAll("$cond tour_id = $tour_id order by day");
 	$assign_list["lstTourItinerary"] = $lstTourItinerary;
 
-
-	
-//	var_dump($country_id); die();
-
     #
 	$oneItem = $clsTour->getOne($tour_id);
-	
 	$lstTourItinerary = $clsTourItinerary->getAll("$cond tour_id = $tour_id order by");
 	$assign_list["lstTourItinerary"] = $lstTourItinerary;
-	
+
+	$clsTourOption = new TourOption();
+    $assign_list["clsTourOption"] = $clsTourOption;
+
+	//    Form Book Tour
+    $lstVisitorType = $clsTourProperty->getAll("is_trash=0 and type='VISITORTYPE' order by order_no asc",$clsTourProperty->pkey);
+    $assign_list["lstVisitorType"] = $lstVisitorType;
+    $list_age_child = $clsTourOption->getAll(" tour_property_height='0' AND tour_property_id='".$age_type_id."' AND tour_property_age='".$child_type_id."'",$clsTourOption->pkey.',title');
+    $assign_list['list_age_child'] = $list_age_child;
+    $getSelectChild = $getSelectInfant = "";
+    $child_visitor_type = $infant_visitor_type = "";
+    if($oneItem['visitorage_child'] != ''){
+        $getSelectChild = $clsTourOption->getSelectBySizeGroup($child_type_id,"VISITORAGETYPE");
+        $textSizeGroupChild = $clsTourOption->getTextSelectBySizeGroup($child_type_id,"VISITORAGETYPE");
+        $child_visitor_type = $age_type_id;
+    }elseif($oneItem['visitorheight_child'] != ''){
+        $getSelectChild = $clsTourOption->getSelectBySizeGroup($child_type_id,"VISITORHEIGHTTYPE");
+        $textSizeGroupChild = $clsTourOption->getTextSelectBySizeGroup($child_type_id,"VISITORHEIGHTTYPE");
+        $child_visitor_type = $height_type_id;
+    }
+    if($oneItem['visitorage_infant'] != ''){
+        $getSelectInfant = $clsTourOption->getSelectBySizeGroup($infant_type_id,"VISITORAGETYPE");
+        $infant_visitor_type = $age_type_id;
+    }elseif($oneItem['visitorheight_infant'] != ''){
+        $getSelectInfant = $clsTourOption->getSelectBySizeGroup($infant_type_id,"VISITORHEIGHTTYPE");
+        $infant_visitor_type = $height_type_id;
+    }
+    $assign_list['child_visitor_type'] = $child_visitor_type;
+    $assign_list['infant_visitor_type'] = $infant_visitor_type;
+    $assign_list['getSelectChild'] = $getSelectChild;
+    $assign_list['getSelectInfant'] = $getSelectInfant;
+    $lstAdultSizeGroup = $oneItem['adult_group_size'];
+    $lstAdultSize = array();
+    if($lstAdultSizeGroup != '' && $lstAdultSizeGroup != '0'){
+        $TMP = explode(',',$lstAdultSizeGroup);
+        for($i=0; $i<count($TMP); $i++){
+            if(!in_array($TMP[$i],$lstAdultSize)){
+                $lstAdultSize[] = $TMP[$i];
+            }
+        }
+    }
+    $lastAdultSize=end($lstAdultSize);
+    $max_adult=$clsTourOption->getOneField('number_to',$lastAdultSize);
+    $assign_list["max_adult"] = $max_adult ?? 1;
+    $lstChildSizeGroup = $oneItem['child_group_size'];
+    $lstChildSize = array();
+    if($lstChildSizeGroup != '' && $lstChildSizeGroup != '0'){
+        $TMP = $clsISO->getArrayByTextSlash($lstChildSizeGroup);
+//        $TMP = explode(',',$lstChildSizeGroup);
+        for($i=0; $i<count($TMP); $i++){
+            if(!in_array($TMP[$i],$lstChildSize)){
+                $lstChildSize[] = $TMP[$i];
+            }
+        }
+    }
+    $max_child=$clsTourOption->getAll('tour_option_id IN ('.implode(',',$lstChildSize).')',"max(number_to) as max");
+    $max_child = (isset($max_child[0]))?$max_child[0]['max']:0;
+    $max_child = !empty($max_child)?$max_child:0;
+    $assign_list["max_child"] = $max_child;
+    $tourcat_id = $oneItem['cat_id'];
+    $assign_list["tourcat_id"] = $tourcat_id;
+    $oneCat = $clsTourCategory->getOne($tourcat_id,'parent_id');
+    $oneParent = $clsTourCategory->getOne($oneCat['parent_id'],$clsTourCategory->pkey.',title,slug');
+    $assign_list["oneParent"] = $oneParent;
+	$max_infant=$clsTourOption->getAll('tour_option_id IN ('.implode(',',$lstInfantSize).')',"max(number_to) as max");
+    $max_infant = (isset($max_infant[0]))?$max_infant[0]['max']:0;
+    $assign_list["max_infant"] = $max_infant;
 
 	
 
-
+	
 
 }
 function default_isocustomize(){

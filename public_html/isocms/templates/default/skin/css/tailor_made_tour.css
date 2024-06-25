@@ -293,7 +293,7 @@ input::placeholder {
 
 .g-recaptcha {
 	display: flex;
-	margin-top: 31px;
+	margin: 31px 0 24px 0;
 	justify-content: center;
 	align-items: center;
 	align-content: center;
@@ -329,8 +329,7 @@ input::placeholder {
 }
 
 .select-input-inf option:disabled {
-	color: var(--Neutral-3, #959AA4) !important; 
-	font-family: "SF Pro Display" !important;
+	color: #959AA4 !important; 
 	font-size: 16px !important;
 	font-style: normal !important;
 	font-weight: 400 !important;
@@ -358,14 +357,31 @@ input::placeholder {
   align-items: center; /* Aligns content vertically within the button */
 }
 
+/* .mr-12 {
+  margin-right: 12px;
+} */
+
 .form-check-label {
   display: flex; /* Enables flexbox layout for the label */
   align-items: center; /* Aligns content vertically within the label */
   margin-right: 0; /* Removes default margin from the label */
+  color:  #434B5C;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 160% */
 }
 
 .form-check-input.chkAll {  /* Targets the specific checkbox class */
   margin-top: 0; /* Adjust margin as needed for fine-tuning */
+}
+
+.form-region label {
+  color:  #111D37;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
 }
 
 
@@ -465,6 +481,20 @@ input::placeholder {
   accent-color: orange;
  border-color: #F0F0F0;
 }
+
+.check_meals--ul {
+  margin-top: 16px;
+}
+
+
+.accordion-button:disabled::after {
+  display: none !important; 
+}
+
+.accordion-button:not(:disabled)::after {
+  display: block !important;
+}
+
 
 
 
