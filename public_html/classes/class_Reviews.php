@@ -534,8 +534,7 @@ class Reviews extends dbBasic{
 		
         #
         $clsEmailTemplate = new EmailTemplate();
-		$clsTour = new Tour();
-        $clsHotel = new Hotel();
+
 
         #
         if($type =='tour'){
@@ -600,16 +599,17 @@ class Reviews extends dbBasic{
 
         return 1;
     }
-    function getReviews($id, $act='', $type='') {
+    function getReviews($id, $act='', $type='tour') {
         global $dbconn;
-        $cond = " is_trash = 0 and is_online = 1 and";
+        $cond = " is_trash = 0 and is_online = 1";
         $txtReview = ['Bad', 'Average', 'Good', 'Excellent', 'Wonderful'];
 
         if (!empty($type)) {
-            $cond   .=  ' AND type = "'.$type.'"';
+            $cond   .=  ' and type = "'.$type.'"';
         }
-        $countReview = $this->countItem("$cond table_id = $id");
-        $sqlAverageRate = "SELECT AVG(rates) FROM $this->tbl WHERE $cond table_id = $id";
+
+        $countReview = $this->countItem("$cond and table_id = $id");
+        $sqlAverageRate = "SELECT AVG(rates) FROM $this->tbl WHERE $cond and table_id = $id";
         $averageRate = round($dbconn->GetOne($sqlAverageRate), 1);
         $index = round( $averageRate - 1);
 

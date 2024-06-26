@@ -510,7 +510,6 @@ function default_place()
 	$limit = " LIMIT $offset,$recordPerPage";
 	#
 	$listHotelPlace = $clsHotel->getAll($cond . $order_by . $limit, $clsHotel->pkey . ',star_id,slug,title,address,intro,image');
-
 	$assign_list['listHotelPlace'] = $listHotelPlace;
 	$assign_list['page_view'] = $page_view;
 	unset($listHotelPlace);
@@ -1066,7 +1065,7 @@ function default_detail()
 	$assign_list['clsHotelRoom'] = $clsHotelRoom;
 	$clsTour = new Tour();
 	$assign_list['clsTour'] = $clsTour;
-	
+
 	$clsHotelPriceCol = new HotelPriceCol();
 	$assign_list['clsHotelPriceCol'] = $clsHotelPriceCol;
 	$clsHotelPriceVal = new HotelPriceVal();
@@ -1101,12 +1100,12 @@ function default_detail()
 	$assign_list['clsReviews'] = $clsReviews;
 	$lstReviews = $clsReviews->getAll("$cond is_online = 1 and table_id = '$hotel_id' $order");
 	$countReview = $clsReviews->countItem("$cond is_online = 1 and table_id = $hotel_id $order");
-	
+
 	$has_data = count($lstHotelProperty) > 0;
 	$assign_list['has_data'] = $has_data;
-	
-	
-	
+
+
+
 
 
 
@@ -1181,7 +1180,7 @@ function default_detail()
 
 	if ($clsISO->getCheckActiveModulePackage($package_id, 'hotel', 'hotel_related', 'customize')) {
 		#-- Hotel Related
-		$lstHotelRelated = $clsHotel->getAll("is_trash=0 and is_online=1 and hotel_id <> '$hotel_id' and city_id ='" . $oneItem['city_id'] . "' order by order_no  limit 0,10", $clsHotel->pkey . ',star_id,slug,title,image,intro,address');
+		$lstHotelRelated = $clsHotel->getAll("is_trash=0 and is_online=1 and hotel_id <> '$hotel_id' and city_id ='" . $oneItem['city_id'] . "' order by order_no asc limit 0,10", $clsHotel->pkey . ',star_id,slug,title,image,intro,address');
 
 		$assign_list['lstHotelRelated'] = $lstHotelRelated;
 	}
@@ -1286,9 +1285,9 @@ function default_detail()
 	$listHotelFacilitiesOther = $clsProperty->getAll("is_trash=0 and type='HotelFacilities' and is_favorite=0 and property_id order by order_no ASC");
 	$assign_list["listHotelFacilitiesOther"] = $listHotelFacilitiesOther;
 
-    $lstHotelProperty = $clsHotelProperty->getAll("is_trash=0 and is_online=1 and type='HotelCategory' order by order_no ASC");
-    $assign_list["lstHotelProperty"] = $lstHotelProperty;
-//		var_dump($lstHotelProperty); die();
+	$lstHotelProperty = $clsHotelProperty->getAll("is_trash=0 and is_online=1 and type='HotelCategory' order by order_no ASC");
+	$assign_list["lstHotelProperty"] = $lstHotelProperty;
+	//		var_dump($lstHotelProperty); die();
 
 	$sqlCountRate = "SELECT rates, ROUND(COUNT(rates) / $countReview * 100) AS count_percent, COUNT(rates) as count FROM default_reviews WHERE $cond is_online = 1 and table_id = $hotel_id GROUP BY rates;";
 
@@ -1338,6 +1337,41 @@ function default_detail()
 	}
 
 	$assign_list["filteredListImage"] = $filteredListImage;
+
+	$cond = "is_trash=0 and";
+
+		$clsPagination = new Pagination();
+		$assign_list["clsPagination"] = $clsPagination;
+	
+		$lnk = $_SERVER['REQUEST_URI'];
+		if (isset($_GET['page'])) {
+			$tmp = explode('&', $lnk);
+			$n = count($tmp) - 1;
+			$la_it = '&' . $tmp[$n];
+			$str_len = -strlen($la_it);
+			$link_page = substr($lnk, 0, $str_len);
+		} else {
+			$link_page = $lnk;
+		}
+	
+		$recordPerPage = 3;
+		$currentPage = isset($_GET['page']) ? intval($_GET['page']) : 1;
+		$totalItem = $clsReviews->getAll("$cond  type ='hotel' and  is_online = 1 and table_id = $hotel_id", $clsReviews->pkey);
+		$totalRecord = $totalItem ? count($totalItem) : 0;
+		$assign_list['totalRecord'] = $totalRecord;
+	
+		$config = array(
+			'total'	=> $totalRecord,
+			'number_per_page'	=> $recordPerPage,
+			'current_page'	=> $currentPage,
+			'link'	=> str_replace('.html', '/', $link_page),
+			'link_page'	=> $link_page
+		);
+	
+		$clsPagination->initianize($config);
+		$page_view = $clsPagination->create_links();
+		$assign_list["page_view"] = $page_view;
+	
 
 
 

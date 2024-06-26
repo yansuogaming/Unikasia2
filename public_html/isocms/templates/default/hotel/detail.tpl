@@ -38,19 +38,19 @@
         "telephone": "{/literal}{$oneItem.phone}{literal}",
         "photo": [{
                 /literal} {
-                    section name = i loop = $listImage
-                } {
-                    literal
-                }
-                "{/literal}{$DOMAIN_NAME}{$listImage[i].image}{literal}",
-                {
-                    /literal}{/section
-                } {
-                    literal
-                }
-                "{/literal}{$DOMAIN_NAME}{$oneItem.image}{literal}"
-            ]
-        }
+                section name = i loop = $listImage
+            } {
+                literal
+            }
+            "{/literal}{$DOMAIN_NAME}{$listImage[i].image}{literal}",
+            {
+                /literal}{/section
+            } {
+                literal
+            }
+            "{/literal}{$DOMAIN_NAME}{$oneItem.image}{literal}"
+        ]
+    }
 </script>
 {/literal}
 
@@ -154,10 +154,10 @@
                             <div class="record_txt">
                                 <div class="txt_score-review">
                                     <div class="border_score">
-                                        <p class="numb_scorestay">{$clsReviews->getReviews($hotel_id, 'avg_point')}</p>
+                                        <p class="numb_scorestay">{$clsReviews->getReviews($hotel_id, 'avg_point', 'hotel')}</p>
                                     </div>
                                     <div class="txt_reviewsquality">
-                                        <p class="txt_qualityreview">{$clsReviews->getReviews($hotel_id, 'txt_review')} <span class="txt_reviews">({$clsReviews->getReviews($hotel_id)} {$core->get_Lang('reviews')})</span></p>
+                                        <p class="txt_qualityreview">{$clsReviews->getReviews($hotel_id, 'txt_review', 'hotel')} <span class="txt_reviews">({$clsReviews->getReviews($hotel_id, '', 'hotel')} {$core->get_Lang('reviews')})</span></p>
                                         <ul class="scroll-title">
                                             <li><a class="ShowAllReviewDetailHotel" data-target=".scroll_reviews">{$core->get_Lang('Show all reviews')}</a></li>
                                         </ul>
@@ -612,13 +612,13 @@
                                 <div class="col-lg-3 measure-evaluation">
                                     <div class="box_score">
 
-                                        <div class="semi-donut margin cirle_semi" style="--percentage : {($clsReviews->getReviews($oneItem.hotel_id, 'avg_point') / 5) * 100}; --fill: #FFBA55 ;">
+                                        <div class="semi-donut margin cirle_semi" style="--percentage : {($clsReviews->getReviews($oneItem.hotel_id, 'avg_point', 'hotel') / 5) * 100}; --fill: #FFBA55 ;">
                                         </div>
                                         <div class="score_text">
-                                            <h3>{$clsReviews->getReviews($oneItem.hotel_id, 'avg_point')}</h3>
-                                            <p class="txt_score">{$clsReviews->getReviews($oneItem.hotel_id, 'txt_review')}</p>
+                                            <h3>{$clsReviews->getReviews($oneItem.hotel_id, 'avg_point', 'hotel')}</h3>
+                                            <p class="txt_score">{$clsReviews->getReviews($oneItem.hotel_id, 'txt_review', 'hotel')}</p>
                                             <p class="number_review">
-                                                ({$clsReviews->getReviews($hotel_id)} {$core->get_Lang('reviews')})
+                                                ({$clsReviews->getReviews($hotel_id, '', 'hotel')} {$core->get_Lang('reviews')})
                                             </p>
                                         </div>
                                     </div>
@@ -660,13 +660,13 @@
 
                                     <div class="avatar_custom" style="background-color:
 
-                        {php}
+                                    {php}
 
-                                $bg_colors = ['#F5F5F5', '#E0F7FA', '#FFF8E1', '#E8F5E9', '#FCE4EC', '#FFFDE7', '#F3E5F5'];
+                                    $bg_colors = ['#F5F5F5', '#E0F7FA', '#FFF8E1', '#E8F5E9', '#FCE4EC', '#FFFDE7', '#F3E5F5'];
 
-                                echo $bg_colors[array_rand($bg_colors)];
+                                    echo $bg_colors[array_rand($bg_colors)];
 
-                        {/php}">{strtoupper(substr($lstReviews[i].fullname, 0, 2))}</div>
+                                    {/php}">{strtoupper(substr($lstReviews[i].fullname, 0, 2))}</div>
 
                                     <div class="name_reviewer">
 
@@ -708,16 +708,20 @@
 
                             {/section}
 
-
-
-
-
-
-
                             {else}
 
                             <div>Not reviews yet</div>
 
+                            {/if}
+
+                            {if $page_view}
+                            <div class="stay-pagination d-flex justify-content-center mt-5">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination">
+                                        {$page_view}
+                                    </ul>
+                                </nav>
+                            </div>
                             {/if}
 
                         </div>
@@ -1150,6 +1154,37 @@
         }
 
     });
+
+    $(document).ready(function() {
+
+    $(document).on('click', '.page', function(e) {
+                e.preventDefault();
+                $('.list_reviews').html('<div class="lazy_loading text-center"><img src="path/to/lazy_load_100.svg" alt="Loading..."></div>');
+                let $page = $(this).text()
+                if ($(this).hasClass('next') || $(this).hasClass('prev')) {
+                    $page = $(this).attr('title')
+                }
+                let data = {
+                    page: $page,
+                    table_id: $hotel_id
+                };
+                $('html, body').scrollTop($(".list_reviews").offset().top - 200);
+                $.post(path_ajax_script + '/index.php?mod=hotel&act=ajaxReviews', data)
+                    .done(function(res) {
+                        $('.list_reviews').html(res);
+                        $('.review').each(function() {
+                            let moreText = $(this).find('.content_review');
+                            let toggleButton = $(this).find('.view_more_review');
+
+                            if (moreText[0].scrollHeight <= 72) {
+                                toggleButton.hide();
+                            }
+                        });
+                    });
+            });
+        })
+        
+
 
 
 
