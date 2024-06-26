@@ -1540,11 +1540,17 @@ ul {
 }
 
 .box_body-hotel {
-    margin: 12px 0 12px;
+    /* margin: 12px 0 12px; */
     display: flex;
     align-items: center;
     gap: 0 6px;
 
+}
+
+.box_left_body {
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
 }
 
 .box_body-service {
@@ -1552,6 +1558,25 @@ ul {
     align-items: center;
     gap: 0 10px;
     margin-top: 16px;
+    position: relative;
+}
+.box_body-service .hotel_icon_more {
+    position: absolute;
+    top: -35px;
+    right: 205px;
+    display: none;
+}
+
+.hotel_icon_more.active{
+    display: block;
+}
+.box_body-service .hotel_icon_more_div{
+    display: flex;
+    gap: 12px;
+    padding: 7px 10px;
+    border-radius: 4px;
+    background: #fff9f1;
+    box-shadow: 0px 12px 32px 0px rgba(125, 135, 158, 0.09);
 }
 
 .box_body-service img {
@@ -2369,7 +2394,7 @@ svg:not(:root).svg-inline--fa {
     font-weight: 500;
     line-height: 16px;
     border-radius: 2px;
-    padding: 2px 3px 2px 2px;
+    padding: 4px 6px 4px 6px;
     cursor: pointer;
 }
 
@@ -2384,6 +2409,30 @@ svg:not(:root).svg-inline--fa {
     display: flex;
     flex-direction: column;
     gap: 8px 0;
+}
+
+.box_body-check ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: #13b97d;
+}
+
+.box_body-check ul li {
+    position: relative;
+}
+
+.box_body-check ul li::after{
+    content: "\f00c";
+    font-family: "Font Awesome 6 Pro";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: -10px;
+    left: -40px;
+    padding: 12px;
+    border-radius: 50%;
 }
 
 .box_body-meal {
@@ -3782,14 +3831,17 @@ padding: 12px 0;
     padding: 4px 12px;
     border-radius: 4px;
     color: #434B5C;
-    border: 1px solid #F0F0F0;
+    border: none;
     font-size: 16px;
     font-weight: 500;
     line-height: 24px;
     max-width: 96px;
     text-align: center;
 }
-
+.price-hotel {
+    border: 1px solid #F0F0F0;
+    padding-left: 10px
+}
 .price-hotel-itemMax {
     color: #434B5C;
     font-size: 16px;
@@ -3797,7 +3849,7 @@ padding: 12px 0;
     line-height: 24px;
     padding: 4px 12px;
     border-radius: 4px;
-    border: 1px solid #F0F0F0;
+    border: none;
     max-width: 96px;
     text-align: center;
 }

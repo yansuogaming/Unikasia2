@@ -168,35 +168,26 @@
                                 <i class="fa-sharp fa-solid fa-location-dot" style="color: #9a9aa4;"></i>
                                 <p class="txt_location">{$clsHotel->getAddress($hotel_id,$arrHotel)}</p>
                                 <a role="link" title="map" data-bs-toggle="modal" data-bs-target="#mapModal{$hotel_id}">{$core->get_Lang('Show map')}</a>
+                                <div class="modal fade mapModal" id="mapModal{$hotel_id}" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
 
-                                <!--
-                              <div class="modal fade mapModal" id="mapModal{$hotel_id}" tabindex="-1" aria-labelledby="mapModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
-                                   <div class="modal-dialog">
+                                            </div>
 
-                                            <div class="modal-content">
+                                            <div class="modal-body">
 
-                                                <div class="modal-header">
-
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
-                                                </div>
-
-                                                <div class="modal-body">
-
-                                                    <iframe src="https://maps.google.it/maps?q={$clsHotel->getAddressMapView($hotel_id,$oneItem)}&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-                                                </div>
+                                                <iframe src="https://maps.google.it/maps?q={$clsHotel->getAddressMapView($hotel_id,$oneItem)}&output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                                             </div>
 
                                         </div>
 
                                     </div>
-								
--->
 
-
+                                </div>
 
                             </div>
 
@@ -575,7 +566,7 @@
                                         </div>
                                     </div>
                                 {/if}
--->
+                                -->
 
                                 {if $listCustomField}
                                 {section name=i loop=$listCustomField}
@@ -758,31 +749,61 @@
 
 
     <section class="recently_hotel">
+        {if $lstHotelRecent}
         <div class="txt_recentlyhotel">
             <div class="container">
-                <h2 class="recentlyViewed">{$core->get_Lang('Recently viewed')}</h2>
-                <div class="recentlyViewed-dev">
-                    <div class="clicked-details">
-                        <div class="sec_relate_box-slide owl-carousel_overview owl-carousel">
+                <h2 class="recentlyViewed" style="display:block;">{$core->get_Lang('Recently viewed')}</h2>
+                <div class="sec_recently_box-slide owl-carousel_overview owl-carousel">
+                    {section name=i loop=$lstHotelRecent}
+                    <div class="recently_hotel">
+                        <div class="img_hotel">
+                            <a class="photo" href="{$clsHotel->getLink($lstHotelRecent[i].hotel_id)}">
+                                <img class="img-responsive img100" src="{$lstHotelRecent[i].image}" alt="{$lstHotelRecent[i].title}" />
+                            </a>
+                        </div>
+                        <div class="box_item_body">
+                            <div class="box_left_body">
+                                <h3 class="box_body_title">
+                                    <a class="text-decoration-none txt-hover-home" href="{$clsHotel->getLink($lstHotelRecent[i].hotel_id)}" title="{$lstHotelRecent[i].title}">{$lstHotelRecent[i].title}</a>
+                                    <div class="star_hotel">
+                                        {$clsHotel->getStarNumber($lstHotelRecent[i].hotel_id)}
+                                    </div>
+                                </h3>
+                                <div class="box_body-hotel">
+                                    <img src="{$URL_IMAGES}/hotel/iconHome.svg" alt="error">
+                                    <p style="margin: 0">{$clsHotel->getTypeHotel($lstHotelRecent[i].hotel_id)}</p>
+
+                                </div>
+                                <div class="address">
+                                    <div class="box_body_adress">
+                                        <img src="{$URL_IMAGES}/hotel/address.svg" alt="error">
+                                        <p>{$clsHotel->getAddress($lstHotelRecent[i].hotel_id)}</p>
+                                    </div>
+                                </div>
+                                <div class="txt_score-review">
+                                    <div class="border_score">
+                                        <p class="numb_scorestay">{$clsReviews->getReviews($lstHotelRecent[i].hotel_id, 'avg_point', 'hotel')}</p>
+                                    </div>
+                                    <div class="txt_reviewsquality">
+                                        <p class="txt_qualityreview">{$clsReviews->getReviews($lstHotelRecent[i].hotel_id, 'txt_review', 'hotel')}
+                                            <span class="txt_reviews">({$clsReviews->getReviews($lstHotelRecent[i].hotel_id, '', 'hotel')} {$core->get_Lang('reviews')})</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="des_list_hotel_item_price">
+                                    <span class="des_price_title">Avg price per night</span>
+                                    <span class="des_price_show_text">US</span>
+                                    <span class="des_price_show_number">${$clsHotel->getPriceAvg($lstHotelRecent[i].hotel_id)}</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    {/section}
                 </div>
-
-
-                <div class="recentlyViewed-mobile">
-                    <div class="clicked-details">
-                        <div class="sec_relate_box-slide owl-carousel_overview owl-carousel">
-                        </div>
-                    </div>
-                </div>
-
-                <button class="btnShowViewed">{$core->get_Lang('More')}</button>
-
-                <button class="btnNoneViewed">{$core->get_Lang('Collapse all')}</button>
-
 
             </div>
         </div>
+        {/if}
 
     </section>
 
@@ -822,8 +843,6 @@
         }
 
     }
-
-
 
 
     var otherPolicy = '{$oneItem.other_policy|unescape}';
@@ -896,6 +915,7 @@
     Fancybox.bind("[data-fancybox]", {
 
     });
+
     $('.list_customer_review_items').owlCarousel({
         loop: false,
         margin: 30,
@@ -1157,33 +1177,33 @@
 
     $(document).ready(function() {
 
-    $(document).on('click', '.page', function(e) {
-                e.preventDefault();
-                $('.list_reviews').html('<div class="lazy_loading text-center"><img src="path/to/lazy_load_100.svg" alt="Loading..."></div>');
-                let $page = $(this).text()
-                if ($(this).hasClass('next') || $(this).hasClass('prev')) {
-                    $page = $(this).attr('title')
-                }
-                let data = {
-                    page: $page,
-                    table_id: $hotel_id
-                };
-                $('html, body').scrollTop($(".list_reviews").offset().top - 200);
-                $.post(path_ajax_script + '/index.php?mod=hotel&act=ajaxReviews', data)
-                    .done(function(res) {
-                        $('.list_reviews').html(res);
-                        $('.review').each(function() {
-                            let moreText = $(this).find('.content_review');
-                            let toggleButton = $(this).find('.view_more_review');
+        $(document).on('click', '.page', function(e) {
+            e.preventDefault();
+            $('.list_reviews').html('<div class="lazy_loading text-center"><img src="path/to/lazy_load_100.svg" alt="Loading..."></div>');
+            let $page = $(this).text()
+            if ($(this).hasClass('next') || $(this).hasClass('prev')) {
+                $page = $(this).attr('title')
+            }
+            let data = {
+                page: $page,
+                table_id: $hotel_id
+            };
+            $('html, body').scrollTop($(".list_reviews").offset().top - 200);
+            $.post(path_ajax_script + '/index.php?mod=hotel&act=ajaxReviews', data)
+                .done(function(res) {
+                    $('.list_reviews').html(res);
+                    $('.review').each(function() {
+                        let moreText = $(this).find('.content_review');
+                        let toggleButton = $(this).find('.view_more_review');
 
-                            if (moreText[0].scrollHeight <= 72) {
-                                toggleButton.hide();
-                            }
-                        });
+                        if (moreText[0].scrollHeight <= 72) {
+                            toggleButton.hide();
+                        }
                     });
-            });
-        })
-        
+                });
+        });
+    })
+
 
 
 

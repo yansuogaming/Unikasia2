@@ -315,8 +315,8 @@
 .txt_score-review {
     display: flex;
     align-items: center;
-    margin-bottom: 24px;
-    margin-top: 12px;
+    margin-bottom: 12px;
+    /* margin-top: 12px; */
 }
 
 .border_score {
@@ -1323,7 +1323,8 @@ form .departure_day:hover {
 
 
 
-.sec_relate_box .owl-carousel .owl-item img {
+.sec_relate_box .owl-carousel .owl-item img,
+.recently_hotel .owl-carousel .owl-item img {
     width: unset;
 }
 
@@ -1362,6 +1363,39 @@ form .departure_day:hover {
     font-weight: 600;
     line-height: 52px;
     position: sticky;
+    display: block !important;
+}
+
+/* .recently_hotel {
+    margin-bottom: 32px;
+    max-width: 326px;
+}
+    */
+
+.recently_hotel .img_hotel {
+    /* max-width: 200px; */
+    overflow: hidden;
+    border-radius: 8px;
+}
+    
+
+.recently_hotel .img_hotel img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+} 
+
+.box_body_title {
+    margin-top: 12px;
+}
+
+.box_body_title a {
+    color:  #111D37;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
 }
 
 /*
@@ -1763,15 +1797,6 @@ img.img_small {
     line-height: 16px;
 }
 
-.revVier .box_body_title a {
-    font-size: 18px;
-    font-weight: 600;
-    color: #111D37;
-    line-height: 28px;
-    overflow: hidden;
-
-
-}
 
 .txt_money_from {
     color: #959AA4;

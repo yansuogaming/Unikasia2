@@ -4,27 +4,23 @@
 
         <div class="banner_img_hotel">
 
-        {if $show eq 'City'}
+            {if $show eq 'City'}
 
-            <img src="{$clsCity->getImageBannerHotel($city_id,1920,600,$oneItem)}" class="img100"
-
-                alt="{$core->get_Lang('Hotels in')} {$TD}" width="600"/>
-
-        {else}
-
-            {if !isset($clsCountryEx->getImageBannerHotel($country_id,1920,500,$oneItem)) || !$clsCountryEx->getImageBannerHotel($country_id,1920,500,$oneItem)}
-
-                <img src="{$URL_IMAGES}/hotel/no-image.png" alt="error" class="img100" width="600"/>
+            <img src="{$clsCity->getImageBannerHotel($city_id,1920,600,$oneItem)}" class="img100" alt="{$core->get_Lang('Hotels in')} {$TD}" width="600" />
 
             {else}
 
-                <img src="{$clsCountryEx->getImageBannerHotel($country_id,1920,600)}" class="img100"
+            {if !isset($clsCountryEx->getImageBannerHotel($country_id,1920,500,$oneItem)) || !$clsCountryEx->getImageBannerHotel($country_id,1920,500,$oneItem)}
 
-                    alt="{$core->get_Lang('Hotels in')} {$TD}" width="600" />
+            <img src="{$URL_IMAGES}/hotel/no-image.png" alt="error" class="img100" width="600" />
+
+            {else}
+
+            <img src="{$clsCountryEx->getImageBannerHotel($country_id,1920,600)}" class="img100" alt="{$core->get_Lang('Hotels in')} {$TD}" width="600" />
 
             {/if}
 
-        {/if}
+            {/if}
 
             <div class="overlay_banner_hotel"></div>
 
@@ -98,21 +94,13 @@
 
                         <h2 class="result_search">{$core->get_Lang('Sort & filter')}</h2>
 
-                        <h2 class="result_searchs" data-bs-title="{$core->get_Lang('Show Sort & filter')}"
+                        <h2 class="result_searchs" data-bs-title="{$core->get_Lang('Show Sort & filter')}" data-bs-custom-class="custom-tooltip" data-bs-toggle="offcanvas" href="#nsdt_show_filter" data-bs-toggle="tooltip" data-bs-placement="top">{$core->get_Lang('Sort & filter')}</h2>
 
-                            data-bs-custom-class="custom-tooltip" data-bs-toggle="offcanvas" href="#nsdt_show_filter"
-
-                            data-bs-toggle="tooltip" data-bs-placement="top">{$core->get_Lang('Sort & filter')}</h2>
-
-                        <div class="offcanvas offcanvas-start" tabindex="-1" id="nsdt_show_filter"
-
-                            aria-labelledby="offcanvasExampleLabel">
+                        <div class="offcanvas offcanvas-start" tabindex="-1" id="nsdt_show_filter" aria-labelledby="offcanvasExampleLabel">
 
                             <div class="offcanvas-header">
 
-                                <button type="button" class="btn-close btn-close-filter bi bi-chevron-left"
-
-                                    data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                <button type="button" class="btn-close btn-close-filter bi bi-chevron-left" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 
                                 <h2 class="filter-title-mobile">{$core->get_Lang('Sort & filter')}</h2>
 
@@ -128,9 +116,7 @@
 
                         </div>
 
-                        <div class="modal fade" id="filter_search" tabindex="-1" role="dialog"
-
-                            aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="filter_search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
                             <div class="modal-dialog">
 
@@ -167,7 +153,7 @@
                             </div>
 
                         </div>
-						
+
 
                         <div class="item-hotel-list">
 
@@ -187,11 +173,11 @@
 
                                 {section name=i loop=$listHotelPlace}
 
-                                    {assign var = hotel_id value = $listHotelPlace[i].hotel_id}
+                                {assign var = hotel_id value = $listHotelPlace[i].hotel_id}
 
-                                    {assign var = arrHotel value = $listHotelPlace[i]}
+                                {assign var = arrHotel value = $listHotelPlace[i]}
 
-                                    {$clsISO->getBlock('box_hotel_item',["hotel_id"=>$hotel_id,"arrHotel"=>$arrHotel])}
+                                {$clsISO->getBlock('box_hotel_item',["hotel_id"=>$hotel_id,"arrHotel"=>$arrHotel])}
 
                                 {/section}
 
@@ -199,17 +185,68 @@
 
                             {if $totalPage gt '1'}
 
-                                <div class="pagination pager">{$page_view}</div>
+                            <div class="pagination pager">{$page_view}</div>
 
                             {/if}
 
-                            <h2 class="recentlyViewed">{$core->get_Lang('Recently viewed')}</h2>
+                            <section class="recently_hotel">
+                                {if $lstHotelRecent}
+                                <div class="txt_recentlyhotel">
+                                    <h2 class="recentlyViewed" style="display:block;">{$core->get_Lang('Recently viewed')}</h2>
+                                    <div class="sec_recently_box-slide owl-carousel_overview6 owl-carousel">
+                                        {section name=i loop=$lstHotelRecent}
+                                        <div class="recently_hotel">
+                                            <div class="img_hotel">
+                                                <a class="photo" href="{$clsHotel->getLink($lstHotelRecent[i].hotel_id)}">
+                                                    <img class="img-responsive img100" src="{$lstHotelRecent[i].image}" alt="{$lstHotelRecent[i].title}" />
+                                                </a>
+                                            </div>
+                                            <div class="box_item_body">
+                                                <div class="box_left_body">
+                                                    <h3 class="box_body_title">
+                                                        <a class="text-decoration-none txt-hover-home" href="{$clsHotel->getLink($lstHotelRecent[i].hotel_id)}" title="{$lstHotelRecent[i].title}">{$lstHotelRecent[i].title}</a>
+                                                        <div class="star_hotel">
+                                                            {$clsHotel->getStarNumber($lstHotelRecent[i].hotel_id)}
+                                                        </div>
+                                                    </h3>
+                                                    <div class="box_body-hotel">
+                                                        <img src="{$URL_IMAGES}/hotel/iconHome.svg" alt="error">
+                                                        <p style="margin: 0">{$clsHotel->getTypeHotel($lstHotelRecent[i].hotel_id)}</p>
 
-                            <div class="clicked-details"></div>
+                                                    </div>
+                                                    <div class="address">
+                                                        <div class="box_body_adress">
+                                                            <img src="{$URL_IMAGES}/hotel/address.svg" alt="error">
+                                                            <p>{$clsHotel->getAddress($lstHotelRecent[i].hotel_id)}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="txt_score-review">
+                                                        <div class="border_score">
+                                                            <p class="numb_scorestay">{$clsReviews->getReviews($lstHotelRecent[i].hotel_id, 'avg_point', 'hotel')}</p>
+                                                        </div>
+                                                        <div class="txt_reviewsquality">
+                                                            <p class="txt_qualityreview">{$clsReviews->getReviews($lstHotelRecent[i].hotel_id, 'txt_review', 'hotel')}
+                                                                <span class="txt_reviews">({$clsReviews->getReviews($lstHotelRecent[i].hotel_id, '', 'hotel')} {$core->get_Lang('reviews')})</span>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="des_list_hotel_item_price">
+                                                        <span class="des_price_title">Avg price per night</span>
+                                                        <span class="des_price_show_text">US</span>
+                                                        <span class="des_price_show_number">${$clsHotel->getPriceAvg($lstHotelRecent[i].hotel_id)}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {/section}
+                                    </div>
 
-                            <button class="btnShowViewed">{$core->get_Lang('More')}</button>
+                                </div>
+                                {/if}
 
-                            <button class="btnNoneViewed">{$core->get_Lang('Collapse all')}</button>
+                            </section>
+
+
 
                         </div>
 
@@ -230,123 +267,292 @@
 {$core->getBlock('also_like')}
 
 
+<style>
+    .recently_hotel .owl-carousel .owl-item .box_left_body img {
+        width: unset;
+    }
 
+    .recently_hotel .recentlyViewed {
+        color: var(--Neutral-1, #111D37);
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 36px;
+        /* 150% */
+        position: sticky;
+        display: block !important;
+    }
+
+    .recently_hotel .img_hotel {
+        /* max-width: 200px; */
+        overflow: hidden;
+        border-radius: 8px;
+    }
+
+
+    .recently_hotel .img_hotel img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    /* .box_body_title {
+        margin-top: 12px;
+    } */
+
+    .box_body_title a {
+        color: #111D37;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 28px;
+    }
+
+    .box_body_adress p {
+        color: #434B5C;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        margin-bottom: 0;
+    }
+
+    .address .box_body_adress {
+        display: flex;
+        align-items: flex-start;
+        gap: 0 6px;
+    }
+
+    .txt_score-review {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        /* margin-top: 12px; */
+    }
+
+    .border_score {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0;
+        border-radius: 8px 8px 8px 0px;
+        background: var(--Accent-2, #004EA8);
+        margin-right: 10px;
+    }
+
+    .numb_scorestay {
+        color: #FFF;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .txt_reviewsquality {
+        display: flex;
+        align-items: center;
+    }
+
+    .txt_qualityreview {
+        margin: 0;
+        color: #111D37;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+    }
+
+    .txt_qualityreview .txt_reviews {
+        color: #959AA4;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 16px;
+    }
+
+    .owl-prev.disabled,
+    .owl-next.disabled {
+        display: none !important;
+    }
+
+    .img_hotel .img-responsive:hover {
+        object-fit: cover;
+        -moz-transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+</style>
 
 
 <script type="text/javascript">
-
     var $_View_more = '{$core->get_Lang("View more")}';
 
     var $_Less_more = '{$core->get_Lang("Less more")}';
 
     var $Loading = '{$core->get_Lang("Loading")}';
 
-    var selectmonth='{$core->get_Lang("select month")}';
+    var selectmonth = '{$core->get_Lang("select month")}';
 
     var $_Expand_all = '{$core->get_Lang("Expand all")}';
 
     var $_Collapse_all = '{$core->get_Lang("Collapse all")}';
 
     var $_LANG_ID = '{$_LANG_ID}';
-
 </script>
 
 
 
 {literal}
 
-    <script>
+<script>
+    $(".btn-close").click(function() {
+        $(this).closest('.mapModal').remove();
+    });
 
-        $(".btn-close").click(function(){
+    $(".box_body-check").each(function() {
+        $(this).find("li:lt(2)").show();
+        $(this).find("li:gt(1)").hide();
+    });
 
-            $(this).closest('.mapModal').remove();
+    $(document).on('click', '.box_body-service-item', function() {
+            let unika_icon_more = $(this).parents('.box_body-service').find('.hotel_icon_more');
+            if (unika_icon_more.hasClass('active')) {
+                unika_icon_more.removeClass('active');
+            } else {
+                unika_icon_more.addClass('active');
+            }
+        })
+        .on('click', function(event) {
+            if (!$(event.target).closest('.hotel_icon_more').length && !$(event.target).closest('.box_body-service-item').length) {
+                $('.hotel_icon_more').removeClass('active');
+            }
+        })
 
-        });
+    function toggleShorted(_this, e) {
 
+        e.preventDefault();
 
+        if (!$(_this).hasClass('clicked')) {
 
-        function toggleShorted(_this, e){
+            $(_this).parent('.short_content')
 
-        	e.preventDefault();
+                .css('height', 'auto')
 
-        	if(!$(_this).hasClass('clicked')){
+                .removeClass('shorted')
 
-        		$(_this).parent('.short_content')
+                .addClass('lessmore');
 
-        				.css('height','auto')
+            $(_this).addClass('clicked').text($_Less_more);
 
-        				.removeClass('shorted')
+        } else {
 
-        				.addClass('lessmore');
+            var max_height = $(_this).attr('max_height');
 
-        		$(_this).addClass('clicked').text($_Less_more);
+            $(_this).parent('.short_content')
 
-        	} else {
+                .css('height', max_height)
 
-        		var max_height = $(_this).attr('max_height');
+                .addClass('shorted')
 
-        		$(_this).parent('.short_content')
+                .removeClass('lessmore');
 
-        				.css('height',max_height)
-
-        				.addClass('shorted')
-
-        				.removeClass('lessmore');
-
-        		$(_this).removeClass('clicked').text($_View_more);
-
-        	}
-
-        	return false;
+            $(_this).removeClass('clicked').text($_View_more);
 
         }
 
-        $(function(){
+        return false;
 
-            if($('.short_content').length){
+    }
 
-                $('.short_content').each((_i, _elem) => {
+    $(function() {
 
-                    var _max_height = $(_elem).data('height'),
+        if ($('.short_content').length) {
 
-                        _origin_height = $(_elem).outerHeight(false);
+            $('.short_content').each((_i, _elem) => {
 
-                    if(parseInt(_max_height) < _origin_height){
+                var _max_height = $(_elem).data('height'),
 
-                        $(_elem)
+                    _origin_height = $(_elem).outerHeight(false);
 
-                            .height(_max_height)
+                if (parseInt(_max_height) < _origin_height) {
 
-                            .addClass('shorted')
+                    $(_elem)
 
-                            .append('<a class="more" max_height="'+_max_height+'" onClick="toggleShorted(this,event)">'+$_View_more+'</a>');
+                        .height(_max_height)
 
-                    }
+                        .addClass('shorted')
 
-                });
+                        .append('<a class="more" max_height="' + _max_height + '" onClick="toggleShorted(this,event)">' + $_View_more + '</a>');
+
+                }
+
+            });
+
+        }
+
+    });
+
+    const textContainer = document.querySelector('.intro_top');
+
+    const toggleBtn = document.querySelector('.toggle-btn');
+
+    if (textContainer.scrollHeight > (textContainer.offsetHeight + 45)) {
+
+        toggleBtn.style.display = 'block';
+
+        toggleBtn.addEventListener('click', () => {
+
+            textContainer.classList.toggle('show-all');
+
+            toggleBtn.innerHTML = textContainer.classList.contains('show-all') ? 'View Less <i class="fa-solid fa-angle-up"></i>' : 'View More <i class="fa-solid fa-angle-down"></i>';
+        });
+
+    }
+
+    $('.owl-carousel_overview6').owlCarousel({
+
+        items: 3,
+        margin: 32,
+
+        loop: false,
+
+        nav: true,
+
+        dots: false,
+
+        smartSpeed: 1000,
+
+        navText: ["<i class='fa fa-chevron-left fa-2xl'></i>", "<i class='fa fa-chevron-right fa-2xl'></i>"],
+
+        responsive: {
+
+            0: {
+
+                items: 1
+
+            },
+
+            600: {
+
+                items: 2
+
+            },
+
+            1000: {
+
+                items: 3
 
             }
 
-        });
-
-        const textContainer = document.querySelector('.intro_top');
-
-        const toggleBtn = document.querySelector('.toggle-btn');
-
-        console.log(textContainer.scrollHeight, textContainer.offsetHeight)
-        if (textContainer.scrollHeight > (textContainer.offsetHeight + 45)) {
-
-            toggleBtn.style.display = 'block';
-
-            toggleBtn.addEventListener('click', () => {
-
-                textContainer.classList.toggle('show-all');
-
-                toggleBtn.innerHTML = textContainer.classList.contains('show-all') ? 'View Less <i class="fa-solid fa-angle-up"></i>' : 'View More <i class="fa-solid fa-angle-down"></i>';            });
-
         }
 
-    </script>
+    })
+</script>
 
 {/literal}
 
