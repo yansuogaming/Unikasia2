@@ -1749,7 +1749,11 @@ img.img_small {
     position: unset;
     margin-top: unset;
     background: none;
-    
+
+}
+
+.box_left_body {
+    display: block;
 }
 
 .expanded {
