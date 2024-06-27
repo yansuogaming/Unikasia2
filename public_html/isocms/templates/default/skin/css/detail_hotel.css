@@ -1634,6 +1634,8 @@ img.img_small {
 
 .sec_relate_box .item_extensions {
     gap: 24px;
+    max-width: 624px;
+    width: 100%;
 }
 
 .item_extensions .div_img {
@@ -1741,6 +1743,15 @@ img.img_small {
     transition: max-height 0.3s ease-out;
 }
 
+.content_review {
+    padding: unset;
+    border-radius:unset;
+    position: unset;
+    margin-top: unset;
+    background: none;
+    
+}
+
 .expanded {
     height: auto;
 }
@@ -1767,6 +1778,17 @@ img.img_small {
     transition: all .3s !important;
     height: 100%;
 }
+
+.box_body-hotel,
+.address,
+.txt_score-review {
+    margin: 12px 0 12px 0;
+}
+
+.des_list_hotel_item_price {
+    margin: 12px 0 12px 0;
+}
+
 
 .box_body-hotel p {
     color: #434B5C;

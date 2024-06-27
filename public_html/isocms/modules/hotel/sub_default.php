@@ -1056,7 +1056,7 @@ function default_search()
 function default_detail()
 {
 	global $assign_list, $_CONFIG, $core, $dbconn, $mod, $act, $_LANG_ID, $title_page, $description_page, $global_image_seo_page, $curl;
-	global $country_id, $clsISO, $package_id, $hotel_id;
+	global $country_id, $clsISO, $package_id, $hotel_id, $tour_id;
 	#
 	$show = isset($_GET['show']) ? $_GET['show'] : '';
 	$assign_list['show'] = $show;
@@ -1113,14 +1113,16 @@ function default_detail()
 
 	$assign_list['lstTour'] = $lstTour;
 
+	$cond = " is_trash = 0 and";
+
 
 	$clsReviews = new Reviews();
 	$assign_list['clsReviews'] = $clsReviews;
-	$lstReviews = $clsReviews->getAll("$cond is_online = 1 and table_id = '$hotel_id' $order");
+	$lstReviews = $clsReviews->getAll("$cond type ='hotel' and is_online = 1 and table_id = '$hotel_id' $order LIMIT 3");
 	$countReview = $clsReviews->countItem("$cond is_online = 1 and table_id = $hotel_id $order");
 
-	$has_data = count($lstHotelProperty) > 0;
-	$assign_list['has_data'] = $has_data;
+	// $has_data = count($lstHotelProperty) > 0;
+	// $assign_list['has_data'] = $has_data;
 
 
 
@@ -1323,12 +1325,12 @@ function default_detail()
 	$assign_list["oneItem"] = $oneItem;
 	$assign_list["hotel_id"] = $hotel_id;
 	$assign_list["table_id"] = $hotel_id;
-	$assign_list["lstHotelItinerary"] = $lstHotelItinerary;
+	// $assign_list["lstHotelItinerary"] = $lstHotelItinerary;
 	$assign_list["clsHotelImage"] = $clsHotelImage;
 	$assign_list["lstReviews"] = $lstReviews;
 	$assign_list["countReview"] = $countReview;
 	$assign_list["reviewProgress"] = $result;
-	$assign_list["travel_style_id"] = $travel_style_id;
+	// $assign_list["travel_style_id"] = $travel_style_id;
 	$assign_list["country_id"] = $country_id;
 	$format_time_now = date('M d, Y', strtotime('+1 day'));
 	$assign_list['format_time_now'] = $format_time_now;
@@ -1413,6 +1415,85 @@ function default_detail()
 	vnSessionDelVar('linkBack');
 	vnSessionSetVar('linkBack', $_SERVER['REQUEST_URI']);
 }
+
+function default_ajaxReviews()
+{
+	global $clsISO;
+    $clsReviews = new Reviews();
+    $table_id = $_POST['table_id'];
+
+    $cond = "is_trash = 0 and ";
+    $clsPagination = new Pagination();
+
+    $lnk = $_SERVER['REQUEST_URI'];
+    if (isset($_GET['page'])) {
+        $tmp = explode('&', $lnk);
+        $n = count($tmp) - 1;
+        $la_it = '&' . $tmp[$n];
+        $str_len = -strlen($la_it);
+        $link_page = substr($lnk, 0, $str_len);
+    } else {
+        $link_page = $lnk;
+    }
+
+    $recordPerPage = 3;
+    $currentPage = isset($_POST['page']) ? intval($_POST['page']) : 1;
+    $totalItem = $clsReviews->getAll("$cond  type ='hotel' and  is_online = 1 and table_id = $table_id", $clsReviews->pkey);
+    $totalRecord = $totalItem ? count($totalItem) : 0;
+
+    $config = array(
+        'total'	=> $totalRecord,
+        'number_per_page'	=> $recordPerPage,
+        'current_page'	=> $currentPage,
+        'link'	=> str_replace('.html', '/', $link_page),
+        'link_page'	=> $link_page
+    );
+
+    $clsPagination->initianize($config);
+    $page_view = $clsPagination->create_links();
+    $offset = ($currentPage - 1) * $recordPerPage;
+    $limit = " LIMIT $offset,$recordPerPage";
+
+    $content = "";
+
+    $lstReviews = $clsReviews->getAll("$cond  type ='hotel' and  is_online = 1 and table_id = $table_id order by order_no $limit");
+    foreach ($lstReviews as $v) {
+        $stars = '';
+        for ($i = 0; $i < 5; $i++) {
+            if ($i < $v['rates']) {
+                $stars .= '<i class="fa-solid fa-star"></i>';
+            } else {
+                $stars .= '<i class="fa-regular fa-star"></i>';
+            }
+        }
+        $content .= '<div class="review">
+                        <div class="person_review">
+                            <div class="avatar_custom" style="background-color:' . $v['bg_color'] . '">' . strtoupper(substr($v['fullname'], 0, 2)) . '</div>
+                            <div class="name_reviewer">
+                                <p class="name">' . $v['fullname'] . '</p>
+                                <p class="time_review">' . date('d M, Y', $v['review_date']) . '</p>
+                            </div>
+                        </div>
+                        <div class="stars_review">
+                            ' . $stars . '
+                        </div>
+                        <p class="title_review">' . $v['title'] . '</p>
+                        <p class="content_review">' . $v['content'] . '</p>
+                        <p class="view_more_review">View more</p>
+                    </div>';
+    }
+    $content .= '<div class="tour-pagination d-flex justify-content-center mt-5">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        ' . $page_view . '
+                    </ul>
+                </nav>
+            </div>';
+
+    echo $content;
+}
+
+
 function default_detail2()
 {
 	global $assign_list, $_CONFIG, $core, $dbconn, $mod, $act, $_LANG_ID, $title_page, $description_page, $global_image_seo_page, $curl;
@@ -1754,3 +1835,4 @@ function default_ajMakeSelectHotelRoom()
 	echo $html;
 	die();
 }
+

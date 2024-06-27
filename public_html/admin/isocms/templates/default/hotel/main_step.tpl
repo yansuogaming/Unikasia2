@@ -119,11 +119,19 @@
                                             {$clsRegion->makeSelectboxOption($oneItem.country_id,$oneItem.region_id)}
                                         </select>
                                         {/if}
-                                        <div id="slb_city_Id_Container" class="form-group">
+										{if $clsISO->getCheckActiveModulePackage($package_id,'city','default','default')}
+                                        <select class="slb required" name="iso-city_id" id="slb_City" style="font-size:14px;min-width:150px; height: 50px">
+										{$clsCity->makeSelectboxOption($oneItem.city_id,$oneItem.country_id)}
+                                        </select>
+										{/if}
+                                        <!-- <div id="slb_city_Id_Container" class="form-group">
+										{if $clsISO->getCheckActiveModulePackage($package_id,'city','default','default')}
                                             <select class="slb iso-selectbox required" name="iso-city_id" id="slb_City" {$oneItem.country_id} style="font-size:14px;min-width:120px">
                                                 {$clsCity->makeSelectboxOption($oneItem.city_id,$oneItem.country_id)}
                                             </select>
-                                        </div>
+											{/if}
+
+                                        </div> -->
                                     </div>
 								</div>
 							</div>
@@ -351,5 +359,7 @@
 				$('#step_'+val.key).closest('li').removeAttr('class').addClass("check_caution");
 			}
 		});
+
+
 	</script>
 {/literal}

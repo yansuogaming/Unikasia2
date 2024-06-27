@@ -11,7 +11,7 @@
 {assign var=regionBlog value=$clsCountryEx->getTitle($country_id)}
 {assign var=blogSlug value=$clsCountryEx->getSlug($country_id)}
 
-{literal}
+<!-- {literal}
 <script type="application/ld+json">
 {
     "@context": "https://schema.org/",
@@ -60,10 +60,10 @@
     {/literal}{if $listTag}{literal},"keywords": {/literal}{$listTag|@json_encode}{literal}{/literal}{/if}{literal}
 }
 </script>
-{/literal}
+{/literal} -->
 
 
-    <link rel="stylesheet" href="{$URL_CSS}/detail_blog.css?v={$upd_version}" as="style" />
+<link rel="stylesheet" href="{$URL_CSS}/detail_blog.css?v={$upd_version}" as="style" />
 
 <section class="listblogdetail_breadcrumb">
     <div class="breadcrumb_list">
@@ -396,8 +396,11 @@
 </section>
     {/if}
 	
-	<style>
-	</style>
+    <style>
+        .unika_header {
+            transition: all 0.3s ease;
+        }
+    </style>
 		
 		
     <script>
@@ -470,7 +473,7 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-  $('.txt_overviewtour p:nth-child(n+1)').hide(); // Ẩn từ thẻ <p> thứ hai trở đi
+  $('.txt_overviewtour p:nth-child(2)').hide(); // Ẩn thẻ <p> thứ hai
 });
 		
 

@@ -91,10 +91,10 @@
     <div class="box_right-body_mobile">
         <div class="box_right_body">
             <div class="review" style="">
-                <div class="rate">{$clsReviews->getReviews($hotel_id, 'avg_point')}</div>
-                <p>{$clsReviews->getReviews($hotel_id, 'txt_review')}
+                <div class="rate">{$clsReviews->getReviews($hotel_id, 'avg_point', 'hotel')}</div>
+                <p>{$clsReviews->getReviews($hotel_id, 'txt_review', 'hotel')}
                     <span>
-                        ({$clsReviews->getReviews($hotel_id)} {$core->get_Lang('reviews')})
+                        ({$clsReviews->getReviews($hotel_id, '', 'hotel')} {$core->get_Lang('reviews')})
                     </span>
                 </p>
             </div>
