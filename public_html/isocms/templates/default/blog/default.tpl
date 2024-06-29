@@ -24,7 +24,7 @@
                         </h2>
                         <div class="blog-item-content">{$clsISO->limit_textIso($clsBlog->getIntro($lstBlogLeft[i].blog_id), 20)}</div>
                         <p class="date-time">
-                            <i class="fa-regular fa-clock" style="color: #74C0FC;"></i>{$lstBlogLeft[i].publish_date|date_format:"%d %b, %Y"} |
+                            <i class="fa-regular fa-clock" style="color: #74C0FC;"></i> {$lstBlogLeft[i].publish_date|date_format:"%d %b, %Y"} |
                             <span>{$clsBlogCategory->getTitle($lstBlogLeft[i].cat_id)}</span>
                         </p>
                     </div>
@@ -143,6 +143,9 @@
                     </div>
                 </div>
                 <div class="col-sm-3">
+                <button id="mobileSortFilterBtn" class="btn btn-primary d-block d-md-none">
+                        Sort & Filter
+                    </button>
                     <div class="list_filter">
                         <h3 class="txt_filter">{$core->get_Lang('Filter')}</h3>
                         <div id="selectedFilters" class="selected-filters"></div>
@@ -216,28 +219,30 @@
         <div class="container">
             <h2 class="title-recently-view">{$core->get_Lang('Recently viewed')}</h2>
             <div class="row blog-recently-view">
-                {section name=i loop=$lstBlogRecent}
-                <div class="col-sm-3">
-                    <div class="blog-item-recently">
-                        <div class="bloglastest">
-                            <a href="{$clsBlog->getLink($lstBlogRecent[i].blog_id)}" class="text-decoration-none">
-                                <div class="img-blogrecently">
-                                    <img class="img-blog" src="{$clsBlog->getImage($lstBlogRecent[i].blog_id, 296, 193)}" alt="image-recent">
-                            </a>
+                <div class="recent_blog_slide owl-carousel_overview owl-carousel">
+                    {section name=i loop=$lstBlogRecent}
+                    <div class="col-lg-11 col-md-11 col-sm-3">
+                        <div class="blog-item-recently">
+                            <div class="bloglastest">
+                                <a href="{$clsBlog->getLink($lstBlogRecent[i].blog_id)}" class="text-decoration-none">
+                                    <div class="img-blogrecently">
+                                        <img class="img-blog" src="{$clsBlog->getImage($lstBlogRecent[i].blog_id, 296, 193)}" alt="image-recent">
+                                </a>
+                            </div>
                         </div>
+                        <h2 class="txt_recently">
+                            <a href="{$clsBlog->getLink($lstBlogRecent[i].blog_id)}">{$lstBlogRecent[i].title}</a>
+                        </h2>
+                        <div class="recently-view-content">
+                            <div class="txt_recentlyview">{$clsISO->limit_textIso($clsBlog->getIntro($lstBlogRecent[i].blog_id), 18)}</div>
+                        </div>
+                        <p class="date-time">
+                            <i class="fa-regular fa-clock" style="color: #74C0FC;"></i> {$lstBlogRecent[i].publish_date|date_format:"%d %b, %Y"} | {$clsBlogCategory->getTitle($lstBlogRecent[i].cat_id)}
+                        </p>
                     </div>
-                    <h2 class="txt_recently">
-                        <a href="{$clsBlog->getLink($lstBlogRecent[i].blog_id)}">{$lstBlogRecent[i].title}</a>
-                    </h2>
-                    <div class="recently-view-content">
-                        <div class="txt_recentlyview">{$clsISO->limit_textIso($clsBlog->getIntro($lstBlogRecent[i].blog_id), 18)}</div>
-                    </div>
-                    <p class="date-time">
-                        <i class="fa-regular fa-clock" style="color: #74C0FC;"></i> {$lstBlogRecent[i].publish_date|date_format:"%d %b, %Y"} | {$clsBlogCategory->getTitle($lstBlogRecent[i].cat_id)}
-                    </p>
                 </div>
+                {/section}
             </div>
-            {/section}
         </div>
         </div>
     </section>
@@ -246,6 +251,64 @@
     {$core->getBlock('top_attraction')}
     {$core->getBlock('also_like')}
 </section>
+
+<style>
+    .owl-next,
+    .owl-prev {
+        position: absolute;
+        top: 50%;
+        right: -58px;
+        transform: translateY(-50%);
+        width: 100%;
+        box-shadow: 0 0px 1px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .owl-prev {
+        position: absolute;
+        top: 50%;
+        left: -1%;
+        transform: translateY(-50%);
+        width: 100%;
+    }
+
+    .owl-next {
+        right: 0px !important;
+    }
+
+    .owl-prev {
+        left: -1px !important;
+    }
+
+    .owl-next,
+    .owl-prev {
+        background-color: transparent;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+    }
+
+    .owl-prev.disabled,
+    .owl-next.disabled {
+        display: none !important;
+    }
+
+    @media (max-width: 768px) {
+        .owl-nav {
+            display: none !important;
+            /* Ẩn toàn bộ owl-nav (cả prev và next) */
+        }
+    }
+
+    @media (max-width: 767px) {
+    .list_filter, .list_search_filter {
+        display: none; /* Ban đầu ẩn các phần này trên mobile */
+    }
+    .list_filter.show, .list_search_filter.show {
+        display: block; /* Hiển thị khi nút được nhấn */
+    }
+}
+</style>
+
 {literal}
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -363,5 +426,81 @@
             lastBlogs[lastBlogs.length - 1].style.borderBottom = 'none';
         }
     });
+
+    // $('.recent_blog_slide').owlCarousel({
+    //     loop: false,
+    //     nav: true,
+    //     dots: false,
+    //     responsive: {
+    //         0: {
+    //             items: 1
+    //         },
+    //         600: {
+    //             items: 2
+    //         },
+    //         1000: {
+    //             items: 3
+    //         }
+    //     }
+    // });
+
+    $('.owl-carousel_overview').owlCarousel({
+
+        items: 3,
+        loop: false,
+
+        nav: true,
+
+        dots: false,
+
+        autoplay: false,
+
+        autoplayTimeout: 3000,
+
+        smartSpeed: 1000,
+
+        navText: ["<i class='fa fa-chevron-left fa-2xl'></i>", "<i class='fa fa-chevron-right fa-2xl'></i>"],
+
+        responsive: {
+
+            0: {
+
+                items: 1
+
+            },
+
+            600: {
+
+                items: 2
+
+            },
+
+            1000: {
+
+                items: 3
+
+            }
+
+        }
+
+    }).on('changed.owl.carousel', function(event) {
+        // Kiểm tra xem carousel có đang ở trạng thái "disabled" (không thể chuyển tiếp) hay không
+        const isDisabled = $(this).hasClass('owl-carousel owl-theme owl-loaded owl-drag'); // Kiểm tra các class mặc định của Owl Carousel
+
+        // Ẩn nút "next" nếu carousel đang ở trạng thái "disabled"
+        $('.owl-next').toggle(!isDisabled);
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+    var sortFilterBtn = document.getElementById('mobileSortFilterBtn');
+    var listFilter = document.querySelector('.list_filter');
+    var listSearchFilter = document.querySelector('.list_search_filter');
+
+    sortFilterBtn.addEventListener('click', function() {
+        listFilter.classList.toggle('show');
+        listSearchFilter.classList.toggle('show');
+    });
+});
+
 </script>
 {/literal}

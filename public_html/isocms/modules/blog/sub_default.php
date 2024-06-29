@@ -267,7 +267,7 @@ function default_default()
 
 			$cond = "blog_id IN ($ids)";
 			$limit = " LIMIT 3";
-			$lstBlogRecent = $clsBlog->getAll("$cond $limit");
+			$lstBlogRecent = $clsBlog->getAll("$cond");
 			$assign_list["lstBlogRecent"] = $lstBlogRecent;
 		}
 	}
@@ -591,7 +591,7 @@ function default_detail()
 
 			$cond = "blog_id IN ($ids)";
 			$limit = " LIMIT 3";
-			$lstBlogRecent = $clsBlog->getAll("$cond $limit");
+			$lstBlogRecent = $clsBlog->getAll("$cond");
 			$assign_list["lstBlogRecent"] = $lstBlogRecent;
 		}
 	}

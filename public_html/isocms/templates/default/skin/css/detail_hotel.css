@@ -1479,7 +1479,9 @@ form .departure_day:hover {
 
 .relate_slide_item #imgAddOn:hover,
 .img_hotel .img-responsive:hover,
-.item_extensions .img_extensions img:hover {
+.item_extensions .img_extensions img:hover,
+.col-lg-8 .big_image .img_big:hover,
+.list_image_small .small_image .img_small:hover  {
     object-fit: cover;
     -moz-transform: scale(1.1);
     -webkit-transform: scale(1.1);
@@ -1489,7 +1491,9 @@ form .departure_day:hover {
 
 
 .relate_slide_image img,
-.img_extensions img {
+.img_extensions img,
+.big_image .img_big,
+.small_image .img_small {
     object-fit: cover;
     -moz-transition: all .3s !important;
     -webkit-transition: all .3s !important;
@@ -1985,3 +1989,4 @@ div.stay-pagination .pagination .page.next, .page.prev {
     text-decoration: line-through;
 
 }
+

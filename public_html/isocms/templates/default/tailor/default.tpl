@@ -52,7 +52,7 @@
                                 <label for="fullname" class="txtlabel">{$core->get_Lang('Full Name')}
                                     <span style="color:black"> *</span>
                                 </label>
-                                <input id="fullname" name="fullname" type="text"
+                                <input id="fullname" name="name" type="text"
                                     class="form-control select-input-inf required" value=""
                                     placeholder="Enter your name">
                             </div>
@@ -62,7 +62,7 @@
                                 <label for="nationality" class="txtlabel">{$core->get_Lang('Nationality')}
                                     <span style="color:black"> *</span>
                                 </label>
-                                <select name="country_id" id="nationality"
+                                <select name="nationality" id="nationality"
                                     class="tailor_select2 form-select select-input-inf required">
                                     <option value="" disabled selected hidden>-- {$core->get_Lang('Please Select')} --
                                     </option>
@@ -132,7 +132,7 @@
                                 <label for="duration" class="txtlabel">{$core->get_Lang('Duration')}</label>
                                 <p class="txt_smalltrip">{$core->get_Lang('in Days')}</p>
 
-                                <input type="duration" name="datution" class="form-control select-input-inf" id="duration"
+                                <input type="duration" name="duration" class="duration form-control select-input-inf" id="duration"
                                     placeholder="Example: 7 Days">
                             </div>
                             <div class="col-md-4">
@@ -187,7 +187,7 @@
                                                     <div class="tailor_minus">
                                                         <i class="fa-regular fa-minus"></i>
                                                     </div>
-                                                    <input inputmode="numeric" class="unika_inp_participant" pattern="[0-9]*" name="adults" value="0">
+                                                    <input inputmode="numeric" class="unika_inp_participant" pattern="[0-9]*" name="adult" value="0">
                                                     <div class="tailor_plus">
                                                         <i class="fa-regular fa-plus"></i>
                                                     </div>
@@ -215,7 +215,7 @@
                                                     <div class="tailor_minus">
                                                         <i class="fa-regular fa-minus"></i>
                                                     </div>
-                                                    <input inputmode="numeric" class="unika_inp_participant" pattern="[0-9]*" name="infants" value="0">
+                                                    <input inputmode="numeric" class="unika_inp_participant" pattern="[0-9]*" name="infant" value="0">
                                                     <div class="tailor_plus">
                                                         <i class="fa-regular fa-plus"></i>
                                                     </div>
@@ -275,8 +275,8 @@
                                                     <label class="form-check-label unika_checkbox"
                                                         for="chkAccordion{$lstCountry[i].country_id}All">
                                                         {$lstCountry[i].title}
-                                                        <input class="form-check-input chkAll me-2 unika_check_all"
-                                                            type="checkbox" value=""
+                                                        <input class="form-check-input chkAll me-2 unika_check_all" 
+                                                            type="checkbox" value="{$lstCountry[i].country_id}" name="destination_country[]"
                                                             id="chkAccordion{$lstCountry[i].country_id}All">
                                                         <span class="checkmark"></span>
                                                     </label>
@@ -291,13 +291,13 @@
                                                     <div class="form-check form-region mr-12">
                                                         <label class="unika_checkbox"
                                                             for="chkAccordion{$lstCountry[i].country_id}Child{$cities[t].city_id}">{$clsCity->getTitle($cities[t].city_id)}
-                                                            <input class="form-check-region" name="destinations[{$lstCountry[i].country_id}]['city_id']" type="checkbox" value="{{$cities[t].city_id}}"
+                                                            <input class="form-check-region" name="destinations[{$lstCountry[i].country_id}][]" type="checkbox" value="{{$cities[t].city_id}}"
                                                                 id="chkAccordion{$lstCountry[i].country_id}Child{$cities[t].city_id}">
                                                             <span class="checkmark"></span>
                                                         </label>
                                                     </div>
                                                     {/section}
-                                                    <input type="text" name="destinations[{$lstCountry[i].country_id}]['text']" class="unika_city_txt form-control select-input-inf"
+                                                    <input type="text" name="destinations[{$lstCountry[i].country_id}][text]" class="unika_city_txt form-control select-input-inf"
                                                         id="input-other" placeholder="Other">
                                                 </div>
                                             </div>
@@ -311,7 +311,7 @@
                                 <h3 class="txt_destinations">Accommodations preference</h3>
                                 <div class="select-checkbox-prefer">
                                     <label for="accommodations" class="txtlabel">Accommodations</label>
-                                    <select class="tailor_select2 form-select select-input-inf" name="accommodations" id="accommodations">
+                                    <select class="tailor_select2 form-select select-input-inf" name="accommodation" id="accommodations">
                                         {$clsTailorProperty->getSelectByProperty('_ACCOMMODATIONS')}
                                     </select>
                                 </div>
@@ -325,7 +325,7 @@
                                                 <label class="unika_checkbox"
                                                     for="unika_room_{$roomClass[i].tailor_property_id}">
                                                     {$roomClass[i].title}
-                                                    <input class="form-check-region" type="checkbox" name="type_room[]"
+                                                    <input class="type_room form-check-region" type="checkbox" name="type_room[]"
                                                         id="unika_room_{$roomClass[i].tailor_property_id}" value="{$roomClass[i].tailor_property_id}">
                                                     <span class="checkmark"></span>
                                                 </label>
@@ -377,20 +377,14 @@
                         go to your spam mailbox.
                     </p>
 
-                    <!-- <div class="g-recaptcha required" data-sitekey="{$clsISO->getVar('reCAPTCHA_KEY')}" data-type="image"></div>
-                    {if $errMsg ne ''}
-                    <div id="error_recaptcha" class="error text_left">{$errMsg}</div>
-                    {else}
-                    <div id="error_recaptcha" class="error text_left"></div>
-                    {/if} -->
-
-                    <div class="h-captcha mt-2 required" data-sitekey="9e108520-d014-48bc-8322-d6d8c1c20db8" style="text-align: center;"></div>
-                    <!-- <div class="g-recaptcha" data-sitekey="6LfH7cMpAAAAAAKENYh7nqX8XErSJ3kQIjNoN5KP" data-type="image"></div>
-          </div> -->
+                   <div class="g-recaptcha" data-sitekey="{$clsISO->getVar('reCAPTCHA_KEY')}"></div>
+							{if $errMsg ne ''}
+							<div id="error_recaptcha" class="error text_left">{$errMsg}</div>
+							{else}
+							<div id="error_recaptcha" class="error text_left"></div>
+							{/if}
 
                     <div class="btn_rqfQ text-center">
-                        <input type="hidden" name="plantrip" value="plantrip" />
-                        <input type="hidden" name="hidden_field" value="" />
                         <button type="submit" class="btn btnrq" id="SubmitEnquiry">
                             {$core->get_Lang('Request for Quotation')}
                         </button>
@@ -401,39 +395,14 @@
     </section>
 </form>
 
-<!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
-<script src="https://js.hcaptcha.com/1/api.js?hl=en" async defer></script>
-
-<script>
-    // Lấy ngôn ngữ của trang web từ thuộc tính lang của thẻ html
-    var pageLang = document.documentElement.lang;
-
-    // Tạo URL cho hCaptcha với tham số ngôn ngữ
-    var hcaptchaScript = document.createElement('script');
-    hcaptchaScript.src = 'https://hcaptcha.com/1/api.js?hl=' + pageLang;
-    hcaptchaScript.async = true;
-    hcaptchaScript.defer = true;
-
-    // Thêm script vào trang web
-    document.head.appendChild(hcaptchaScript);
-  </script>
-
-
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 {literal}
 <script>
-    $(document).ready(function () {
-        $('.unika_header').removeClass('unika_header_2');
-
-        $(window).scroll(function () {
-            requestAnimationFrame(function () {
-                $('.unika_header').removeClass('unika_header_2');
-            });
-        });
-    });
-
-
     if ($('.wpcf7-datepicker').length) {
+        let dateNow = $.datepicker.formatDate("M d, yy", new Date())
+        $('.wpcf7-datepicker').val(dateNow);
+        
         $('.wpcf7-datepicker').datepicker({
             dateFormat: "MM d, yy",
             minDate: new Date()
@@ -469,6 +438,16 @@
     $(function () {
         $('.tailor_select2').select2();
 
+        $(document).ready(function () {
+            $('.unika_header').removeClass('unika_header_2');
+
+            $(window).scroll(function () {
+                requestAnimationFrame(function () {
+                    $('.unika_header').removeClass('unika_header_2');
+                });
+            });
+        });
+
         // validate form
         $('#unika_tailor_form').validate({
             errorPlacement: function (error, element) {
@@ -489,8 +468,8 @@
             debug: false,
             rules: {
                 title: "required",
-                fullname: "required",
-                country_id: "required",
+                name: "required",
+                nationality: "required",
                 email: {
                     required: true,
                     email: true
@@ -500,8 +479,8 @@
             },
             messages: {
                 title: msg_title_required,
-                fullname: msg_fullname_required,
-                country_id: msg_country_id_not_valid,
+                name: msg_fullname_required,
+                nationality: msg_country_id_not_valid,
                 email: {
                     required: msg_email_required,
                     email: msg_email_not_valid
@@ -511,24 +490,26 @@
             },
             submitHandler: function () {
                 let formData = new FormData();
-
+                var recaptchaResponse = grecaptcha.getResponse();
+                console.log('recaptchaResponse:', recaptchaResponse)
                 $('#unika_tailor_form').find('input, select, textarea').each(function(){
                     let name_val = $(this).attr('name');
                     let value = $(this).val();
-                    if(!$(this).hasClass('unika_check_all')){
-                        let is_check_parents = $(this).parents('.accordion-item').find('.unika_check_all').prop('checked')
-                        if($(this).hasClass('form-check-region')){
-                            if($(this).prop('checked') && is_check_parents){
-                                formData.append(name_val, value);
-                            }
-                        }else if($(this).hasClass('unika_city_txt')){
-                            if(value != '' && is_check_parents){
-                                formData.append(name_val, value);
-                            }
-                        }else{
+                    let is_check_parents = $(this).parents('.accordion-item').find('.unika_check_all').prop('checked')
+                    if($(this).hasClass('form-check-region')){
+                        if($(this).prop('checked') && is_check_parents || $(this).hasClass('type_room') && $(this).prop('checked')){
                             formData.append(name_val, value);
                         }
-                        
+                    }else if($(this).hasClass('unika_check_all')){
+                        if($(this).prop('checked')){
+                            formData.append(name_val, value);
+                        }
+                    }else if($(this).hasClass('unika_city_txt')){
+                        if(value != '' && is_check_parents){
+                            formData.append(name_val, value);
+                        }
+                    }else{
+                        formData.append(name_val, value);
                     }
                 })
 
@@ -540,10 +521,10 @@
                     beforeSend: function (xhr) {
                         $('.unika_item_submit').val("Processing...").prop('disabled', true);
                     },
-                    dataType: "JSON",
                     contentType: false,
                     success: function (res) {
-                        $('#download_brochure').val("Submit your review");
+                        console.log('res:', res)
+                        console.log('res:', res['result'])
                         alert("Successfully! Please check email!");
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
@@ -602,7 +583,7 @@
                 tailor_input.val(inp_val);
                 participantText();
             })
-            .on('keyup', '.tailor_participant_event input', function () {
+            .on('keyup', '.tailor_participant_event input, .duration', function () {
                 let inp_val = $(this).val();
                 inp_val = inp_val.replace(/^0+/, '');
 
@@ -617,7 +598,6 @@
             })
             .on('keyup', '.unika_tailor_phone', function () {
                 let inp_val = $(this).val();
-                inp_val = inp_val.replace(/^0+/, '');
 
                 if (!/^\d*$/.test(inp_val)) {
                     inp_val = inp_val.replace(/[^0-9]/g, '');
@@ -643,10 +623,6 @@
             $('.tailor_participant_text').text(html);
         }
 
-        if (hrecaptcha.getResponse(0) === "") {
-      $('#error_recaptcha').html(msg_recapcha).fadeIn().delay(3000).fadeOut();
-      return false;
-    }
     });
 </script>
 {/literal}
